@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 3532537743036255449}
   - component: {fileID: 5034625651574109727}
   - component: {fileID: 8619545744077464930}
+  - component: {fileID: 3744766754884279522}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -99,5 +100,19 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c45a649b939019643ae51c7838bd8dc2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shipSizeWidth: 1.8
+  shipSizeHeight: 0.85
+--- !u!114 &3744766754884279522
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8206298384110266935}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0876bc56e7388644285642f5e26d0f87, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

@@ -18,10 +18,11 @@ namespace Controls
         public Dictionary<InputAction, BaseCommand> bindActions = new Dictionary<InputAction, BaseCommand>();
         public Dictionary<BaseCommand, InputAction> reversedBindActions = new Dictionary<BaseCommand, InputAction>();
 
-        GameObject player;
+        //GameObject player;
 
         public static InputHandler instance;
-
+        
+        public List<IActor> actors = new List<IActor>();
         void Awake()
         {
             if (instance == null)
@@ -37,19 +38,26 @@ namespace Controls
 
         void Start()
         {
-            player = GameObject.FindGameObjectWithTag("Player");
+            //player = GameObject.FindGameObjectWithTag("Player");
+
         }
 
         void Update()
         {
-            foreach (var action in bindActions)
-                action.Value.Execute(action.Key, player);
+            foreach (IActor actor in actors)
+            {
+                foreach (var action in bindActions)
+                    action.Value.Execute(action.Key, actor.GetGameObject());
+            }
         }
 
         void FixedUpdate()
         {
-            foreach (var action in bindActions)
-                action.Value.FixedExecute(action.Key, player);
+            foreach (IActor actor in actors)
+            {
+                foreach (var action in bindActions)
+                    action.Value.FixedExecute(action.Key, actor.GetGameObject());
+            }
         }
 
         void OnEnable()
@@ -78,6 +86,12 @@ namespace Controls
         public void UpdateActionsCommandsList(List<ActionCommandPair> aList)
         {
             actionCommandList = aList;
+        }
+
+        public void AddActor(IActor actor)
+        {
+            actors.Add(actor);
+            UpdateActionsCommandsBindings();
         }
     }
 }
