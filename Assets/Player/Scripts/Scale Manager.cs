@@ -9,10 +9,11 @@ public class ScaleManager : MonoBehaviour
     private void OnDrawGizmos()
     {
         float halfsizeWidth = shipSizeWidth / 2;
+        float halfsizeHeight = shipSizeHeight / 2;
         Gizmos.color = Color.yellow;
         Vector3 position = transform.position;
-        Gizmos.DrawLine(position + transform.right * halfsizeWidth + transform.up * shipSizeHeight, position -transform.right * halfsizeWidth + transform.up * shipSizeHeight);
-        Gizmos.DrawLine(position + transform.right * halfsizeWidth - transform.up * shipSizeHeight, position - transform.right * halfsizeWidth - transform.up * shipSizeHeight);
+        Gizmos.DrawLine(position + transform.right * halfsizeWidth + transform.up * halfsizeHeight, position -transform.right * halfsizeWidth + transform.up * halfsizeHeight);
+        Gizmos.DrawLine(position + transform.right * halfsizeWidth - transform.up * halfsizeHeight, position - transform.right * halfsizeWidth - transform.up * halfsizeHeight);
 
     }
 }
