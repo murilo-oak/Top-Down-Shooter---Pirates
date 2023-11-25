@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 619141dcd6e85c7499efd259dde3113a, type: 3}
-  m_Name: Gameplay Scheme
+  m_Name: Enemy  Gameplay Scheme
   m_EditorClassIdentifier: 
   actionCommandList:
   - key:
@@ -20,15 +20,7 @@ MonoBehaviour:
       m_Id: b932fb68-c959-4235-82dd-4f2180cb50b6
       m_Processors: 
       m_Interactions: Press
-      m_SingletonActionBindings:
-      - m_Name: 
-        m_Id: 95c361c9-5bd9-43d7-a22c-6e1b44a83408
-        m_Path: <Keyboard>/a
-        m_Interactions: 
-        m_Processors: 
-        m_Groups: 
-        m_Action: Key
-        m_Flags: 0
+      m_SingletonActionBindings: []
       m_Flags: 0
     val: {fileID: 11400000, guid: c28c3111c408a3a44a18e94f1c74243e, type: 2}
   - key:
@@ -38,15 +30,7 @@ MonoBehaviour:
       m_Id: b932fb68-c959-4235-82dd-4f2180cb50b6
       m_Processors: 
       m_Interactions: Press
-      m_SingletonActionBindings:
-      - m_Name: 
-        m_Id: 95c361c9-5bd9-43d7-a22c-6e1b44a83408
-        m_Path: <Keyboard>/d
-        m_Interactions: 
-        m_Processors: 
-        m_Groups: 
-        m_Action: Key
-        m_Flags: 0
+      m_SingletonActionBindings: []
       m_Flags: 0
     val: {fileID: 11400000, guid: c30aa02a8b3d9264391288752da64df3, type: 2}
   - key:
@@ -56,15 +40,7 @@ MonoBehaviour:
       m_Id: b932fb68-c959-4235-82dd-4f2180cb50b6
       m_Processors: 
       m_Interactions: Press
-      m_SingletonActionBindings:
-      - m_Name: 
-        m_Id: 95c361c9-5bd9-43d7-a22c-6e1b44a83408
-        m_Path: <Keyboard>/w
-        m_Interactions: 
-        m_Processors: 
-        m_Groups: 
-        m_Action: Key
-        m_Flags: 0
+      m_SingletonActionBindings: []
       m_Flags: 0
     val: {fileID: 11400000, guid: 8af1c38c5acd3fc40b40cdfa43598da0, type: 2}
   - key:
@@ -74,15 +50,7 @@ MonoBehaviour:
       m_Id: b932fb68-c959-4235-82dd-4f2180cb50b6
       m_Processors: 
       m_Interactions: Press
-      m_SingletonActionBindings:
-      - m_Name: 
-        m_Id: 95c361c9-5bd9-43d7-a22c-6e1b44a83408
-        m_Path: <Keyboard>/space
-        m_Interactions: 
-        m_Processors: 
-        m_Groups: 
-        m_Action: Key
-        m_Flags: 0
+      m_SingletonActionBindings: []
       m_Flags: 0
     val: {fileID: 11400000, guid: 64b5143d9d2673d45b9f2739cffbd064, type: 2}
   - key:
@@ -92,14 +60,6 @@ MonoBehaviour:
       m_Id: b932fb68-c959-4235-82dd-4f2180cb50b6
       m_Processors: 
       m_Interactions: Press
-      m_SingletonActionBindings:
-      - m_Name: 
-        m_Id: 95c361c9-5bd9-43d7-a22c-6e1b44a83408
-        m_Path: <Keyboard>/e
-        m_Interactions: 
-        m_Processors: 
-        m_Groups: 
-        m_Action: Key
-        m_Flags: 0
+      m_SingletonActionBindings: []
       m_Flags: 0
     val: {fileID: 11400000, guid: 6c62740390b537b40b8229737bafd723, type: 2}

@@ -15,8 +15,9 @@ public class Enemy : MonoBehaviour, IActor
         Debug.Log("IA");
     }
 
-    public GameObject GetGameObject() 
-    { 
-        return gameObject;
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawSphere(transform.position, 0.5f);
     }
 }
