@@ -4,16 +4,18 @@ using UnityEngine;
 public class PlayerSchemeManager : MonoBehaviour
 {
     public ActionsCommandsScheme gameplayScheme;
+    private InputHandler inputHandler;
 
     void Start()
     {
+        inputHandler = GetComponent<InputHandler>();
         ActivateMenuScheme();
     }
 
     public void ActivateMenuScheme()
     {
-        InputHandler.instance.UpdateActionsCommandsList(gameplayScheme.actionCommandList);
-        InputHandler.instance.UpdateActionsCommandsBindings();
+        inputHandler.UpdateActionsCommandsList(gameplayScheme.actionCommandList);
+        inputHandler.UpdateActionsCommandsBindings();
     }
 
     private void OnDrawGizmos()
