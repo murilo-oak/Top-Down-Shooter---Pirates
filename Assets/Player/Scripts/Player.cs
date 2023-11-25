@@ -14,9 +14,4 @@ public class Player : MonoBehaviour, IActor
     {
         
     }
-
-    public GameObject GetGameObject() 
-    {
-        return gameObject;
-    }
 }

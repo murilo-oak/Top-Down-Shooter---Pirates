@@ -1,20 +1,20 @@
 using Controls;
 using UnityEngine;
 
-public class PlayerSchemeManager : MonoBehaviour
+public class SchemeManager : MonoBehaviour
 {
-    public ActionsCommandsScheme gameplayScheme;
+    public ActionsCommandsScheme playerGameplayScheme;
     private InputHandler inputHandler;
 
     void Start()
     {
         inputHandler = GetComponent<InputHandler>();
-        ActivateMenuScheme();
+        ActivatePlayerGameplayScheme();
     }
 
-    public void ActivateMenuScheme()
+    public void ActivatePlayerGameplayScheme()
     {
-        inputHandler.UpdateActionsCommandsList(gameplayScheme.actionCommandList);
+        inputHandler.UpdateActionsCommandsList(playerGameplayScheme.actionCommandList);
         inputHandler.UpdateActionsCommandsBindings();
     }
 
