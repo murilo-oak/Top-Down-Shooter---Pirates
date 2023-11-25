@@ -18,10 +18,6 @@ namespace Controls
         public Dictionary<InputAction, BaseCommand> bindActions = new Dictionary<InputAction, BaseCommand>();
         public Dictionary<BaseCommand, InputAction> reversedBindActions = new Dictionary<BaseCommand, InputAction>();
 
-        void Start()
-        {
-
-        }
 
         void Update()
         {

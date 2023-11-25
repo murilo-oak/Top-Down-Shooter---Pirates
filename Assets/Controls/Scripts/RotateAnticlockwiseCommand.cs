@@ -20,12 +20,17 @@ namespace Controls {
         {
             if (action.IsPressed())
             {
-                Transform tf = gameObject.transform;
-                float rotationAngleZ = rotationSpeed * Time.fixedDeltaTime;
-                Quaternion zRotation = Quaternion.AngleAxis(rotationAngleZ, Vector3.forward);
-                
-                tf.rotation *= zRotation;
+                rotate(gameObject);
             }
+        }
+
+        public void rotate(GameObject gameObject)
+        {
+            Transform tf = gameObject.transform;
+            float rotationAngleZ = rotationSpeed * Time.fixedDeltaTime;
+            Quaternion zRotation = Quaternion.AngleAxis(rotationAngleZ, Vector3.forward);
+
+            tf.rotation *= zRotation;
         }
     }
 }

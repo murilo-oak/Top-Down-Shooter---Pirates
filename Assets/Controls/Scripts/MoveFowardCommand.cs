@@ -18,8 +18,13 @@ namespace Controls {
         {
             if (action.IsPressed())
             {
-                gameObject.GetComponent<Rigidbody>().AddForce(gameObject.transform.right * movementSpeed);           
+                MoveFoward(gameObject);
             }
+        }
+
+        public void MoveFoward(GameObject gameObject)
+        {
+            gameObject.GetComponent<Rigidbody>().AddForce(gameObject.transform.right * movementSpeed);
         }
     }
 }
