@@ -15,8 +15,8 @@ public class AiEnemyController : MonoBehaviour
     }
     private void FixedUpdate()
     {
-        moveFowardCommand.PerformCommand(gameObject);
-        rotateAnticlockwiseCommand.PerformCommand(gameObject);
+        moveFowardCommand.Execute(gameObject);
+        rotateAnticlockwiseCommand.Execute(gameObject);
     }
     private void OnDrawGizmos()
     {

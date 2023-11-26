@@ -12,11 +12,11 @@ namespace Controls {
         
         public override void CheckInputandExecute(InputAction action, GameObject gameObject = null)
         {
-            bool canPerformCommand = action.WasPressedThisFrame();
+            bool canExecute = action.WasPressedThisFrame();
             
-            if (canPerformCommand) 
+            if (canExecute) 
             {
-                PerformCommand(gameObject);
+                Execute(gameObject);
             }
         }
         public override void CheckInputandFixedExecute(InputAction action, GameObject gameObject = null)
@@ -24,7 +24,7 @@ namespace Controls {
             
         }
 
-        public override void PerformCommand(GameObject gameObject)
+        public override void Execute(GameObject gameObject)
         {
             SideShoot(gameObject);
         }

@@ -15,14 +15,14 @@ namespace Controls {
 
         public override void CheckInputandFixedExecute(InputAction action, GameObject gameObject = null)
         {
-            bool canPerformCommand = action.IsPressed();
-            if (canPerformCommand)
+            bool canExecute = action.IsPressed();
+            if (canExecute)
             {
-                PerformCommand(gameObject);
+                Execute(gameObject);
             }
         }
 
-        public override void PerformCommand(GameObject gameObject)
+        public override void Execute(GameObject gameObject)
         {
             RotateClockwise(gameObject);
         }

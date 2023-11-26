@@ -9,7 +9,7 @@ namespace Controls
 
         public virtual void CheckInputandFixedExecute(InputAction action, GameObject gameObject = null) { }
 
-        public virtual void PerformCommand(GameObject gameObject) { }
+        public virtual void Execute(GameObject gameObject) { }
 
     }
 }
