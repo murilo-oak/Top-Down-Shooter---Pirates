@@ -1,6 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -10,19 +7,26 @@ namespace Controls {
     public class MoveFowardCommand : BaseCommand
     {
         [SerializeField][Range(1f, 4f)] private float movementSpeed;
-        public override void Execute(InputAction action, GameObject gameObject = null)
+        public override void CheckInputandExecute(InputAction action, GameObject gameObject = null)
         {
             
         }
-        public override void FixedExecute(InputAction action, GameObject gameObject = null)
+        public override void CheckInputandFixedExecute(InputAction action, GameObject gameObject = null)
         {
-            if (action.IsPressed())
+            bool canPerformCommand = action.IsPressed();
+
+            if (canPerformCommand)
             {
-                MoveFoward(gameObject);
+                PerformCommand(gameObject);
             }
         }
 
-        public void MoveFoward(GameObject gameObject)
+        public override void PerformCommand(GameObject gameObject)
+        {
+            MoveFoward(gameObject);
+        }
+
+        private void MoveFoward(GameObject gameObject)
         {
             gameObject.GetComponent<Rigidbody>().AddForce(gameObject.transform.right * movementSpeed);
         }

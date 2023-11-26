@@ -22,14 +22,14 @@ namespace Controls
         void Update()
         {
             foreach (var action in bindActions)
-                action.Value.Execute(action.Key, gameObject);
+                action.Value.CheckInputandExecute(action.Key, gameObject);
 
         }
 
         void FixedUpdate()
         {
             foreach (var action in bindActions)
-                action.Value.FixedExecute(action.Key, gameObject);    
+                action.Value.CheckInputandFixedExecute(action.Key, gameObject);    
         }
 
         void OnEnable()

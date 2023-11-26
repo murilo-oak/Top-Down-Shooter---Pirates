@@ -5,9 +5,12 @@ namespace Controls
 {
     public class BaseCommand : ScriptableObject
     {
-        public virtual void Execute(InputAction action, GameObject gameObject = null) { }
+        public virtual void CheckInputandExecute(InputAction action, GameObject gameObject = null) { }
 
-        public virtual void FixedExecute(InputAction action, GameObject gameObject = null) { }
+        public virtual void CheckInputandFixedExecute(InputAction action, GameObject gameObject = null) { }
+
+        public virtual void PerformCommand(GameObject gameObject) { }
+
     }
 }
 

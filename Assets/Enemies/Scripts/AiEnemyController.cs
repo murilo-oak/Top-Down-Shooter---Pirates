@@ -6,20 +6,17 @@ using UnityEngine.InputSystem;
 
 public class AiEnemyController : MonoBehaviour
 {
-    InputAction virtualAction;
     [SerializeField] MoveFowardCommand moveFowardCommand;
     [SerializeField] RotateAnticlockwiseCommand rotateAnticlockwiseCommand;
-    InputHandler inputHandler;
 
 
     private void Start()
     {
-        inputHandler = GetComponent<InputHandler>();
     }
     private void FixedUpdate()
     {
-        moveFowardCommand.MoveFoward(gameObject);
-        rotateAnticlockwiseCommand.rotate(gameObject);
+        moveFowardCommand.PerformCommand(gameObject);
+        rotateAnticlockwiseCommand.PerformCommand(gameObject);
     }
     private void OnDrawGizmos()
     {

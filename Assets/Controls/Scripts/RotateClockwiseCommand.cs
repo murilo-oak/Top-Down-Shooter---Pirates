@@ -8,20 +8,33 @@ namespace Controls {
     {
 
         [Range(0, 500f)][SerializeField] private float rotationSpeed = 100f;
-        public override void Execute(InputAction action, GameObject gameObject = null)
+        public override void CheckInputandExecute(InputAction action, GameObject gameObject = null)
         {
             
         }
-        public override void FixedExecute(InputAction action, GameObject gameObject = null)
+
+        public override void CheckInputandFixedExecute(InputAction action, GameObject gameObject = null)
         {
-            if (action.IsPressed())
+            bool canPerformCommand = action.IsPressed();
+            if (canPerformCommand)
             {
-                Transform tf = gameObject.transform;
-                float rotationAngleZ = rotationSpeed * Time.fixedDeltaTime;
-                Quaternion zRotation = Quaternion.AngleAxis(rotationAngleZ, -Vector3.forward);
-                
-                tf.rotation *= zRotation;
+                PerformCommand(gameObject);
             }
+        }
+
+        public override void PerformCommand(GameObject gameObject)
+        {
+            RotateClockwise(gameObject);
+        }
+
+        private void RotateClockwise(GameObject gameObject) 
+        {
+            Transform tf = gameObject.transform;
+            float rotationAngleZ = rotationSpeed * Time.fixedDeltaTime;
+            
+            Quaternion zRotation = Quaternion.AngleAxis(rotationAngleZ, -Vector3.forward);
+
+            tf.rotation *= zRotation;
         }
     }
 }

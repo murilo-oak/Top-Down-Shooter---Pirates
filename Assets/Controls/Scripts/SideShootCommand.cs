@@ -1,6 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -12,16 +9,29 @@ namespace Controls {
         [Range(0, 20)][SerializeField] private float initialSpeed = 1f;
         [Range(0, 20)][SerializeField] private float bulletLifeTime = 5f;
         [Range(0, 20)][SerializeField] private int amountBulletsToShoot = 3;
-        public override void Execute(InputAction action, GameObject gameObject = null)
+        
+        public override void CheckInputandExecute(InputAction action, GameObject gameObject = null)
         {
-            if (action.WasPressedThisFrame()) 
+            bool canPerformCommand = action.WasPressedThisFrame();
+            
+            if (canPerformCommand) 
             {
-                gameObject.GetComponent<BulletSpawner>().SpawnSideBullets(bulletLifeTime, initialSpeed, amountBulletsToShoot);
+                PerformCommand(gameObject);
             }
         }
-        public override void FixedExecute(InputAction action, GameObject gameObject = null)
+        public override void CheckInputandFixedExecute(InputAction action, GameObject gameObject = null)
         {
             
+        }
+
+        public override void PerformCommand(GameObject gameObject)
+        {
+            SideShoot(gameObject);
+        }
+
+        private void SideShoot(GameObject gameObject)
+        {
+            gameObject.GetComponent<BulletSpawner>().SpawnSideBullets(bulletLifeTime, initialSpeed, amountBulletsToShoot);
         }
     }
 }
