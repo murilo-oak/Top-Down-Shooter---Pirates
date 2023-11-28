@@ -5,17 +5,21 @@ using Controls;
 
 public class EnemyBT : BTree
 {
-    public Transform[] waypoints;
-
-    [Min(0f)]    [SerializeField] private float fovRange = 0.3f;
-    [Min(0.01f)] [SerializeField] private float distancePatrolThreshold;
-    [Min(0)]     [SerializeField] private float waitingTimePatrol;
-
-    [Min(0)] [SerializeField] float movementTriggerDistance;
-
+    [Header("Commands of Behaviour Tree")]
     [SerializeField] private MoveFowardCommand moveFowardCommand;
     [SerializeField] private RotateAnticlockwiseCommand rotateAnticlockwiseCommand;
     [SerializeField] private RotateClockwiseCommand rotateClockwiseCommand;
+
+    [Header("Task Patrol Task Config")]
+    [Min(0.01f)][SerializeField] private float distancePatrolThreshold;
+    [Min(0)][SerializeField] private float waitingTimePatrol;
+    public Transform[] waypoints;
+
+    [Header("Check Player In FOV View Config")]
+    [Min(0f)]    [SerializeField] private float fovRange = 0.3f;
+
+    [Header("Task Go To Target Config")]
+    [Min(0)][SerializeField] float movementTriggerDistance;
 
     private BulletSpawner bulletSpawner;
 
@@ -31,7 +35,7 @@ public class EnemyBT : BTree
             new Sequence(new List<Node>
             {
                 new CheckPlayerInAttackRange(transform),
-                new TaskShoot(transform, bulletSpawner,rotateClockwiseCommand, rotateAnticlockwiseCommand),
+                new TaskShoot(transform, bulletSpawner, rotateClockwiseCommand, rotateAnticlockwiseCommand),
             }),
             new Sequence(new List<Node>
             {
