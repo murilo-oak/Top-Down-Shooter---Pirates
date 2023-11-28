@@ -29,7 +29,7 @@ public class TaskGoToTarget : Node
     {
         Transform target = (Transform)GetData("target");
 
-        if (ShouldMoveToTarget(target))
+        if (target != null && ShouldMoveToTarget(target))
         {
             MoveToTarget(target);
         }

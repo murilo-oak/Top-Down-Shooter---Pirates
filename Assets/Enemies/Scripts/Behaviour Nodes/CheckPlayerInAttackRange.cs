@@ -22,17 +22,18 @@ public class CheckPlayerInAttackRange : Node
         if (notFoundTarget)
         {
             state = NodeState.Failure;
-            return state; 
+            return state;
         }
 
         Transform targetTf = (Transform)target;
-        bool isInAttackRange = Vector3.Distance(transform.position, targetTf.position) <= attackRange;
+        bool isInAttackRange = targetTf != null ? (Vector3.Distance(transform.position, targetTf.position) <= attackRange) : false;
 
         if (isInAttackRange)
         {
             state = NodeState.Success;
             return state;
         }
+        
 
         state = NodeState.Failure;
         return state;
