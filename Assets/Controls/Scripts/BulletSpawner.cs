@@ -8,14 +8,14 @@ public class BulletSpawner : MonoBehaviour
 {
     public GameObject bulletPrefab;
     [SerializeField] private ScaleManager scaleManager;
-
+    [TagSelector][SerializeField] public string targetDamageTag;
     public void SpawnFrontBullet(float bulletLifeTime, float initialSpeed)
     {
         GameObject bulletSpawned = Instantiate(bulletPrefab, transform.position, Quaternion.identity);
         Rigidbody rbBullet = bulletSpawned.GetComponent<Rigidbody>();
-        
-        rbBullet.AddForce(transform.right * initialSpeed, ForceMode.Impulse);
 
+        rbBullet.AddForce(transform.right * initialSpeed, ForceMode.Impulse);
+        bulletSpawned.GetComponent<Bullet>().SetTargetTagDamage(targetDamageTag);
         Destroy(bulletSpawned, bulletLifeTime);
     }
 
@@ -23,6 +23,7 @@ public class BulletSpawner : MonoBehaviour
     {
         Vector3 sideDir = gameObject.transform.up;
         Vector3 position = transform.position;
+
         float halfsizeWidth = scaleManager.shipSizeWidth/2;
         float shipSizeHeight = scaleManager.shipSizeHeight/2;
 

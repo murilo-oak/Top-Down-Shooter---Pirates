@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ed342b05afcfd74ab1d62f004b29913, type: 3}
   m_Name: Rotate Anticlockwise Command
   m_EditorClassIdentifier: 
-  rotationSpeed: 127
+  rotationSpeed: 40

@@ -30,7 +30,7 @@ namespace Controls {
         private void RotateClockwise(GameObject gameObject) 
         {
             Transform tf = gameObject.transform;
-            float rotationAngleZ = rotationSpeed * Time.fixedDeltaTime;
+            float rotationAngleZ = rotationSpeed * Time.deltaTime;
             
             Quaternion zRotation = Quaternion.AngleAxis(rotationAngleZ, -Vector3.forward);
 

@@ -10,11 +10,13 @@ GameObject:
   m_Component:
   - component: {fileID: 3225330326151067546}
   - component: {fileID: 5245482113018242836}
+  - component: {fileID: 8123693749395556676}
   - component: {fileID: 3532537743036255449}
   - component: {fileID: 5034625651574109727}
   - component: {fileID: 8619545744077464930}
   - component: {fileID: 3744766754884279522}
   - component: {fileID: 5864861983226576193}
+  - component: {fileID: -1058552174078074870}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -64,6 +66,29 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!136 &8123693749395556676
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8206298384110266935}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.46
+  m_Height: 2.91
+  m_Direction: 0
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &3532537743036255449
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -91,6 +116,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletPrefab: {fileID: 8351234271093208253, guid: c48983da260d7f144a2372a18c85f04b, type: 3}
   scaleManager: {fileID: 8619545744077464930}
+  targetDamageTag: Enemy
 --- !u!114 &8619545744077464930
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -127,5 +153,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ad445caee11d37144bde15a9653b001e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &-1058552174078074870
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8206298384110266935}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b0166aabead74964a82c6cad7b8a6325, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

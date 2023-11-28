@@ -6,7 +6,7 @@ namespace Controls {
     [CreateAssetMenu(menuName = "Controls/Commands/MoveFowardCommand")]
     public class MoveFowardCommand : BaseCommand
     {
-        [SerializeField][Range(1f, 4f)] private float movementSpeed;
+        [SerializeField][Range(0f, 500f)] private float movementSpeed;
         public override void CheckInputandExecute(InputAction action, GameObject gameObject = null)
         {
             
@@ -28,7 +28,10 @@ namespace Controls {
 
         private void MoveFoward(GameObject gameObject)
         {
-            gameObject.GetComponent<Rigidbody>().AddForce(gameObject.transform.right * movementSpeed);
+            Rigidbody gameObjectRb = gameObject.GetComponent<Rigidbody>();
+            Vector3 gameObjectFacingDirection = gameObject.transform.right;
+
+            gameObjectRb.AddForce(movementSpeed * Time.deltaTime * gameObjectFacingDirection);
         }
     }
 }
