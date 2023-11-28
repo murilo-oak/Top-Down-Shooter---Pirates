@@ -76,17 +76,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e83f35fb803a3eb4ebceabbc7cb12ea9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  moveFowardCommand: {fileID: 11400000, guid: 8af1c38c5acd3fc40b40cdfa43598da0, type: 2}
+  rotateAnticlockwiseCommand: {fileID: 11400000, guid: c28c3111c408a3a44a18e94f1c74243e, type: 2}
+  rotateClockwiseCommand: {fileID: 11400000, guid: c30aa02a8b3d9264391288752da64df3, type: 2}
+  distancePatrolThreshold: 0.1
+  waitingTimePatrol: 5
   waypoints:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  distancePatrolThreshold: 0.1
-  waitingTimePatrol: 5
+  fovRange: 0.97
   movementTriggerDistance: 2.5
-  moveFowardCommand: {fileID: 11400000, guid: 8af1c38c5acd3fc40b40cdfa43598da0, type: 2}
-  rotateAnticlockwiseCommand: {fileID: 11400000, guid: c28c3111c408a3a44a18e94f1c74243e, type: 2}
-  rotateClockwiseCommand: {fileID: 11400000, guid: c30aa02a8b3d9264391288752da64df3, type: 2}
+  attackRange: 5
 --- !u!114 &5361736749976294257
 MonoBehaviour:
   m_ObjectHideFlags: 0

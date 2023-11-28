@@ -6,9 +6,12 @@ public class CheckPlayerInAttackRange : Node
 {
     private readonly Transform transform;
     public static int playerMask = 1 << 6;
-    public CheckPlayerInAttackRange(Transform transform)
+    private float attackRange = 5f;
+
+    public CheckPlayerInAttackRange(Transform transform, float attackRange)
     {
         this.transform = transform;
+        this.attackRange = attackRange;
     }
 
     public override NodeState Evaluate()
@@ -23,7 +26,7 @@ public class CheckPlayerInAttackRange : Node
         }
 
         Transform targetTf = (Transform)target;
-        bool isInAttackRange = Vector3.Distance(transform.position, targetTf.position) <= 5f;
+        bool isInAttackRange = Vector3.Distance(transform.position, targetTf.position) <= attackRange;
 
         if (isInAttackRange)
         {

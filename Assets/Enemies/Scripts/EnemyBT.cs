@@ -21,6 +21,9 @@ public class EnemyBT : BTree
     [Header("Task Go To Target Config")]
     [Min(0)][SerializeField] float movementTriggerDistance;
 
+    [Header("Check Player In Attack Range Config")]
+    [Min(0)][SerializeField] float attackRange = 5f;
+    
     private BulletSpawner bulletSpawner;
 
     private void Start()
@@ -34,7 +37,7 @@ public class EnemyBT : BTree
         {
             new Sequence(new List<Node>
             {
-                new CheckPlayerInAttackRange(transform),
+                new CheckPlayerInAttackRange(transform, attackRange),
                 new TaskShoot(transform, bulletSpawner, rotateClockwiseCommand, rotateAnticlockwiseCommand),
             }),
             new Sequence(new List<Node>
