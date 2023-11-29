@@ -11,7 +11,13 @@ public class Bullet : MonoBehaviour
     {
         GameObject targetGameObject = collision.gameObject;
         bool canDealDamageOnTarget = targetGameObject.CompareTag(targetDamageTag);
-        
+
+        if (targetGameObject.CompareTag("Island"))
+        {
+            Destroy(this.gameObject);
+            return;
+        }
+
         if (canDealDamageOnTarget)
         {
             targetGameObject.GetComponent<HealthManager>().TakeDamage(damage);

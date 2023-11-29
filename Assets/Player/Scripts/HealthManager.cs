@@ -5,7 +5,7 @@ public class HealthManager: MonoBehaviour
     [Range(1, 100)]
     int totalHealth = 5;
     int currentHealth = 5;
-
+    [SerializeField] GameObject player;
     public void TakeDamage(int damagePoints)
     { 
         currentHealth = Mathf.Max(0, currentHealth - damagePoints);
@@ -32,6 +32,11 @@ public class HealthManager: MonoBehaviour
 
     private void Die()
     {
+        if(gameObject.CompareTag("Enemy"))
+        {
+            GameManager.instance.scoreManager.IncreaseScore();
+        }
+
         Destroy(gameObject);
     }
 }

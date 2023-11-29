@@ -2,6 +2,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using BehaviorTree;
 using Controls;
+using Unity.AI;
+using UnityEngine.AI;
 
 public class EnemyBT : BTree
 {
@@ -38,6 +40,7 @@ public class EnemyBT : BTree
             new Sequence(new List<Node>
             {
                 new CheckPlayerInAttackRange(transform, attackRange),
+                new CheckObstacleAhead(transform),
                 new TaskShoot(transform, bulletSpawner, rotateClockwiseCommand, rotateAnticlockwiseCommand),
             }),
             new Sequence(new List<Node>

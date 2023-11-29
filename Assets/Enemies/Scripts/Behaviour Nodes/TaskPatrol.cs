@@ -2,7 +2,10 @@ using UnityEngine;
 using BehaviorTree;
 using Controls;
 using Utils;
-
+using Unity.AI;
+using UnityEngine.AI;
+using static UnityEngine.GraphicsBuffer;
+using System.IO;
 public class TaskPatrol : Node
 {
     private readonly Transform transform;
@@ -19,6 +22,7 @@ public class TaskPatrol : Node
     private bool waiting = false;
 
     private float distancePatrolThreshold;
+    private NavMeshPath pathToTarget;
 
     public TaskPatrol(Transform transform, Transform[] waypoints,
                       MoveFowardCommand moveFowardCommand,
@@ -33,6 +37,7 @@ public class TaskPatrol : Node
         this.rotateClockwiseCommand = rotateClockwiseCommand;
         waitTime = waitingTimePatrol;
         this.distancePatrolThreshold = distancePatrolThreshold; 
+        pathToTarget = new NavMeshPath();
     }
 
     public override NodeState Evaluate()
@@ -56,20 +61,24 @@ public class TaskPatrol : Node
             }
             return;
         }
-
+        
+        transform.GetComponent<PathVisualizer>().target = waypoints[currentWaypointIndex];
+       
         if(!waiting)
         {
             Transform wp = waypoints[currentWaypointIndex];
-            bool reachedTarget = Vector3.Distance(transform.position, wp.position) < distancePatrolThreshold;
 
-            if (reachedTarget)
+            if (ReachedTarget(wp))
             {
-                AdvanceToNextWaypoint();
                 StartWaiting();
+                AdvanceToNextWaypoint();
             }
             else
             {
-                MoveToWayPoint(wp);
+                if (NavMesh.CalculatePath(transform.position, wp.position, NavMesh.AllAreas, pathToTarget))
+                {
+                    MoveAlongPath(pathToTarget.corners[1]);
+                }
             }
         }
     }
@@ -89,21 +98,26 @@ public class TaskPatrol : Node
         waiting = false;
     }
 
+    bool ReachedTarget(Transform target)
+    {
+        return Vector3.Distance(transform.position, target.position) < distancePatrolThreshold;
+    }
+
     void AdvanceToNextWaypoint()
     {
         currentWaypointIndex = (currentWaypointIndex + 1) % waypoints.Length;
     }
 
-    void MoveToWayPoint(Transform wp)
+    void MoveAlongPath(Vector3 nextCorner)
     {
         moveFowardCommand.Execute(transform.gameObject);
-        RotateToTarget(wp);
+        RotateToTarget(nextCorner);
     }
 
-    void RotateToTarget(Transform target)
+    void RotateToTarget(Vector3 targetPos)
     {
         Vector3 facePointingDirection = transform.right;
-        Vector3 TargetDirection = Vector3.Normalize(target.transform.position - transform.position);
+        Vector3 TargetDirection = Vector3.Normalize(targetPos - transform.position);
         
         float det = MathHelper.Determinant(facePointingDirection, TargetDirection);
         bool shouldRotateAntiClockwise = det > 0 && Mathf.Abs(det) > 0.01f;

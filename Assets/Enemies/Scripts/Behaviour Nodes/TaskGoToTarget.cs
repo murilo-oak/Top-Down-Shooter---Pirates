@@ -2,10 +2,12 @@ using UnityEngine;
 using BehaviorTree;
 using Controls;
 using Utils;
+using UnityEngine.AI;
 
 public class TaskGoToTarget : Node
 {
     private readonly Transform transform;
+    private NavMeshPath pathToTarget;
 
     private readonly MoveFowardCommand moveFowardCommand;
     private readonly RotateAnticlockwiseCommand rotateAnticlockwiseCommand;
@@ -23,41 +25,40 @@ public class TaskGoToTarget : Node
         this.rotateAnticlockwiseCommand = rotateAnticlockwiseCommand;
         this.rotateClockwiseCommand = rotateClockwiseCommand;
         this.movementTriggerDistance = movementTriggerDistance;
+        pathToTarget = new NavMeshPath();
     }
 
     public override NodeState Evaluate()
     {
         Transform target = (Transform)GetData("target");
 
-        if (target != null && ShouldMoveToTarget(target))
+        if (target != null)
         {
-            MoveToTarget(target);
+            if (NavMesh.CalculatePath(transform.position, target.position, NavMesh.AllAreas, pathToTarget))
+            {
+                MoveAlongPath(pathToTarget.corners[1]);
+            }
         }
-
+        
         state = NodeState.Running;
         return state;
     }
 
-    private bool ShouldMoveToTarget(Transform target)
-    {
-        return Vector3.Distance(transform.position, target.position) > movementTriggerDistance;
-    }
-
-    void MoveToTarget(Transform target)
+    void MoveAlongPath(Vector3 nextCorner)
     {
         moveFowardCommand.Execute(transform.gameObject);
-        RotateToTarget(target);
+        RotateToTarget(nextCorner);
     }
 
-    void RotateToTarget(Transform target)
+    void RotateToTarget(Vector3 targetPos)
     {
-        Vector3 pointingDirection = transform.right;
-        Vector3 targetDirection = Vector3.Normalize(target.transform.position - transform.position);
+        Vector3 facePointingDirection = transform.right;
+        Vector3 TargetDirection = Vector3.Normalize(targetPos - transform.position);
 
-        float det = MathHelper.Determinant(pointingDirection, targetDirection);
-        bool shouldRotateAntiClockWise = det > 0 && Mathf.Abs(det) > 0.01f;
+        float det = MathHelper.Determinant(facePointingDirection, TargetDirection);
+        bool shouldRotateAntiClockwise = det > 0 && Mathf.Abs(det) > 0.01f;
 
-        if (shouldRotateAntiClockWise)
+        if (shouldRotateAntiClockwise)
         {
             rotateAnticlockwiseCommand.Execute(transform.gameObject);
         }
