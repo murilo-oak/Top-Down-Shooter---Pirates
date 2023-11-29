@@ -3,12 +3,19 @@ using UnityEngine;
 public class PlayerBoundsGenerator : MonoBehaviour
 {
     Camera mainCamera;
-    
+
+    public Vector3 bottomLeft { get; private set; }
+    public Vector3 bottomRight { get; private set; }
+    public Vector3 topLeft { get; private set; }
+    public Vector3 topRight { get; private set; }
+
+    public float height { get; private set; } = 0f;
+    public float width { get; private set; } = 0f;
+
     private void Start()
     {
         mainCamera = Camera.main;
-        CreateBounds();
-        
+        CreateBounds(); 
     }
 
     void CreateBounds()
@@ -21,13 +28,13 @@ public class PlayerBoundsGenerator : MonoBehaviour
     {
         float zPos = Mathf.Abs(mainCamera.transform.position.z);
 
-        Vector3 bottomLeft = mainCamera.ViewportToWorldPoint(new Vector3(0, 0, zPos));
-        Vector3 bottomRight = mainCamera.ViewportToWorldPoint(new Vector3(1, 0, zPos));
-        Vector3 topLeft = mainCamera.ViewportToWorldPoint(new Vector3(0, 1, zPos));
-        Vector3 topRight = mainCamera.ViewportToWorldPoint(new Vector3(1, 1, zPos));
+        bottomLeft = mainCamera.ViewportToWorldPoint(new Vector3(0, 0, zPos));
+        bottomRight = mainCamera.ViewportToWorldPoint(new Vector3(1, 0, zPos));
+        topLeft = mainCamera.ViewportToWorldPoint(new Vector3(0, 1, zPos));
+        topRight = mainCamera.ViewportToWorldPoint(new Vector3(1, 1, zPos));
 
-        float height = (bottomLeft - topLeft).magnitude;
-        float width = (bottomLeft - bottomRight).magnitude;
+        height = (bottomLeft - topLeft).magnitude;
+        width = (bottomLeft - bottomRight).magnitude;
 
         CreateBoxCollider("LeftBounds", bottomLeft + new Vector3(0, topLeft.y, 0), new Vector3(0.1f, height, 10f)) ;
         CreateBoxCollider("RightBounds", bottomRight + new Vector3(0, topRight.y, 0), new Vector3(0.1f, height, 10f));

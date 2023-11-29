@@ -2,8 +2,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using BehaviorTree;
 using Controls;
-using Unity.AI;
-using UnityEngine.AI;
 
 public class EnemyBT : BTree
 {
@@ -18,7 +16,7 @@ public class EnemyBT : BTree
     public Transform[] waypoints;
 
     [Header("Check Player In FOV View Config")]
-    [Min(0f)]    [SerializeField] private float fovRange = 0.3f;
+    [Min(0f)][SerializeField] private float fovRange = 0.3f;
 
     [Header("Task Go To Target Config")]
     [Min(0)][SerializeField] float movementTriggerDistance;

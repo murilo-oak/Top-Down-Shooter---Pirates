@@ -5,7 +5,7 @@ public class GameManager : MonoBehaviour
     public static GameManager instance { get; private set; }
     public GameStateController gameStateController { get; private set; }
     public ScoreManager scoreManager { get; private set; }
-
+    public PlayerBoundsGenerator playerBoundsGenerator { get; private set; }
     private void Awake()
     {
         if (instance != null && instance != this)
@@ -17,5 +17,6 @@ public class GameManager : MonoBehaviour
 
         gameStateController = GetComponent<GameStateController>();
         scoreManager = GetComponent<ScoreManager>();
+        playerBoundsGenerator = GetComponent<PlayerBoundsGenerator>();
     }
 }

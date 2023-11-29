@@ -50,34 +50,35 @@ public class TaskPatrol : Node
 
     void UpdatePatrolWaitingState()
     {
-        if (waiting)
+        if (waypoints.Length > 0)
         {
-            UpdateWaitCounter();
-            bool isWaitCounterReached = waitCounter >= waitTime;
-            
-            if (isWaitCounterReached)
+            if (waiting)
             {
-                StopWaiting();
-            }
-            return;
-        }
-        
-        transform.GetComponent<PathVisualizer>().target = waypoints[currentWaypointIndex];
-       
-        if(!waiting)
-        {
-            Transform wp = waypoints[currentWaypointIndex];
+                UpdateWaitCounter();
+                bool isWaitCounterReached = waitCounter >= waitTime;
 
-            if (ReachedTarget(wp))
-            {
-                StartWaiting();
-                AdvanceToNextWaypoint();
-            }
-            else
-            {
-                if (NavMesh.CalculatePath(transform.position, wp.position, NavMesh.AllAreas, pathToTarget))
+                if (isWaitCounterReached)
                 {
-                    MoveAlongPath(pathToTarget.corners[1]);
+                    StopWaiting();
+                }
+                return;
+            }
+
+            if (!waiting)
+            {
+                Transform wp = waypoints[currentWaypointIndex];
+
+                if (ReachedTarget(wp))
+                {
+                    StartWaiting();
+                    AdvanceToNextWaypoint();
+                }
+                else
+                {
+                    if (NavMesh.CalculatePath(transform.position, wp.position, NavMesh.AllAreas, pathToTarget))
+                    {
+                        MoveAlongPath(pathToTarget.corners[1]);
+                    }
                 }
             }
         }
