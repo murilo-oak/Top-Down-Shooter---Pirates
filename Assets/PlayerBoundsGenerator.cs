@@ -36,7 +36,7 @@ public class PlayerBoundsGenerator : MonoBehaviour
         height = (bottomLeft - topLeft).magnitude;
         width = (bottomLeft - bottomRight).magnitude;
 
-        CreateBoxCollider("LeftBounds", bottomLeft + new Vector3(0, topLeft.y, 0), new Vector3(0.1f, height, 10f)) ;
+        CreateBoxCollider("LeftBounds", bottomLeft + new Vector3(0, topLeft.y, 0), new Vector3(0.1f, height, 10f));
         CreateBoxCollider("RightBounds", bottomRight + new Vector3(0, topRight.y, 0), new Vector3(0.1f, height, 10f));
         CreateBoxCollider("TopBounds", topLeft + new Vector3(topRight.x, 0, 0), new Vector3(width, 0.1f, 10f));
         CreateBoxCollider("BottomBounds", bottomLeft + new Vector3(bottomRight.x, 0, 0), new Vector3(width, 0.1f, 10f));
@@ -51,5 +51,6 @@ public class PlayerBoundsGenerator : MonoBehaviour
 
         boxCollider.center = position;
         boxCollider.size = size;
+        boxCollider.gameObject.layer = LayerMask.NameToLayer("ScreenBounds");
     }
 }

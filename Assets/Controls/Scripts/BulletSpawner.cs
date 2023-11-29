@@ -39,7 +39,7 @@ public class BulletSpawner : MonoBehaviour
                 Rigidbody rbBullet = bulletSpawned.GetComponent<Rigidbody>();
                 
                 rbBullet.AddForce(sideDir * initialSpeed, ForceMode.Impulse);
-                
+                bulletSpawned.GetComponent<Bullet>().SetTargetTagDamage(targetDamageTag);
                 Destroy(bulletSpawned, bulletLifeTime);
             }
             sideDir = -sideDir;

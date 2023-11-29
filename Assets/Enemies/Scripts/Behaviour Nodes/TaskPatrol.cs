@@ -63,7 +63,7 @@ public class TaskPatrol : Node
                 }
                 return;
             }
-            transform.gameObject.GetComponent<PathVisualizer>().target = waypoints[currentWaypointIndex];
+
             if (!waiting)
             {
                 Transform wp = waypoints[currentWaypointIndex];
@@ -121,7 +121,7 @@ public class TaskPatrol : Node
         Vector3 TargetDirection = Vector3.Normalize(targetPos - transform.position);
         
         float det = MathHelper.Determinant(facePointingDirection, TargetDirection);
-        bool shouldRotateAntiClockwise = det > 0 && Mathf.Abs(det) > 0.02f;
+        bool shouldRotateAntiClockwise = det > 0 && Mathf.Abs(det) > 0.0f;
 
         if (shouldRotateAntiClockwise)
         {

@@ -1,17 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
-using System.Drawing;
 using UnityEngine;
 using UnityEngine.AI;
-using UnityEngine.UIElements;
+
 
 public class EnemySpawner : MonoBehaviour
 {
-    [SerializeField] float timerToSpawnNewEnemy = 1f;
+    [Min(0.01f)][SerializeField] float timerToSpawnNewEnemy = 1f;
     public List<GameObject> enemyTypes = new List<GameObject>();
-    public float range = 10.0f;
-
-    Vector3 randomPoint;
 
     void Start()
     {
@@ -25,7 +21,7 @@ public class EnemySpawner : MonoBehaviour
 
         Vector3 point;
         
-        if (RandomPoint(range, out point))
+        if (RandomPoint(out point))
         {
             Instantiate(enemyTypes[randomIndex], point, Quaternion.identity);
         }
@@ -34,7 +30,7 @@ public class EnemySpawner : MonoBehaviour
         StartCoroutine(SpawnEnemy());
     }
 
-    bool RandomPoint(float range, out Vector3 result)
+    bool RandomPoint(out Vector3 result)
     {
         for (int i = 0; i < 30; i++)
         {
