@@ -6,6 +6,11 @@ public class HealthManager: MonoBehaviour
     int totalHealth = 5;
     int currentHealth = 5;
     [SerializeField] GameObject player;
+    Animator animator;
+    private void Start()
+    {
+        animator = GetComponent<Animator>();
+    }
     public void TakeDamage(int damagePoints)
     { 
         currentHealth = Mathf.Max(0, currentHealth - damagePoints);
@@ -20,11 +25,24 @@ public class HealthManager: MonoBehaviour
 
     private bool CheckHealth()
     {
-        bool entityDied = currentHealth <= 0;
+        float healthPercetage = currentHealth / (float)totalHealth;
+        bool entityDied = healthPercetage <= 0;
         
         if (entityDied) {
             Die();
             return true;
+        }
+
+        if (healthPercetage <= 0.3f)
+        {
+            animator.SetTrigger("onAlmostDying");
+            return false;
+        }
+
+        if (healthPercetage <= 0.75f)
+        {
+            animator.SetTrigger("onCharacterBelowHalfHealth");
+            return false;
         }
 
         return false;
