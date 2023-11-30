@@ -2,13 +2,13 @@ using UnityEngine;
 
 public class GameStateController : MonoBehaviour
 {
-    IGameState currentState;
-    IGameState startMenuState = new StartMenuState();
-    IGameState gameplayState = new GameplayState();
+    public IGameState currentState { get; private set; }
+    public IGameState menuState { get; private set; } = new MainMenuState();
+    public IGameState gameplayState { get; private set; } = new GameplayState();
 
     private void Start()
     {
-        ChangeState(startMenuState);
+        currentState = gameplayState;
     }
     void Update()
     {
@@ -17,6 +17,7 @@ public class GameStateController : MonoBehaviour
             currentState.UpdateState(this);
         }
     }
+
     public void ChangeState(IGameState newState)
     {
         if (currentState != null)

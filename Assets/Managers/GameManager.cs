@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -18,5 +19,13 @@ public class GameManager : MonoBehaviour
         gameStateController = GetComponent<GameStateController>();
         scoreManager = GetComponent<ScoreManager>();
         playerBoundsGenerator = GetComponent<PlayerBoundsGenerator>();
+    }
+
+    private void Start()
+    {
+        if(SceneManager.GetActiveScene().name == "MainMenuScene")
+        {
+            gameStateController.ChangeState(gameStateController.menuState);
+        }
     }
 }

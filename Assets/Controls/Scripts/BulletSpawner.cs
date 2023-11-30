@@ -8,7 +8,7 @@ public class BulletSpawner : MonoBehaviour
 {
     public GameObject bulletPrefab;
     [SerializeField] private ScaleManager scaleManager;
-    [TagSelector][SerializeField] public string targetDamageTag;
+    [TagSelector] public string targetDamageTag;
     public void SpawnFrontBullet(float bulletLifeTime, float initialSpeed)
     {
         GameObject bulletSpawned = Instantiate(bulletPrefab, transform.position, Quaternion.identity);
