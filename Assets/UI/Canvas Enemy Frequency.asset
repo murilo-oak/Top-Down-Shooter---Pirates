@@ -12,5 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 52f4a272bdcbad74f91d64ce83d15bd2, type: 3}
   m_Name: Canvas Enemy Frequency
   m_EditorClassIdentifier: 
-  timerLengthSeconds: 0
-  frequecyEnemySpawn: 0
+  timerLengthSeconds: 1

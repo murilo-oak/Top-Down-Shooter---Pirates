@@ -14,6 +14,8 @@ public class EnemySpawner : MonoBehaviour
     {
         StartCoroutine(SpawnEnemy());
         frequencyToSpawnNewEnemy = optionsMenuInfo.timerLengthSeconds;
+        if(frequencyToSpawnNewEnemy <= 0)
+            frequencyToSpawnNewEnemy = 1;
     }
 
     IEnumerator SpawnEnemy()

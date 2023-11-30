@@ -60,7 +60,17 @@ public class InputTimerUI : MonoBehaviour
 
     void StoreCanvasInfo()
     {
-        canvasInfo.timerLengthSeconds = minutes * 60 + seconds;
+        int lengthForTimer = minutes * 60 + seconds;
+        
+        if (lengthForTimer == 0)
+        {
+            seconds++;
+            canvasInfo.timerLengthSeconds = seconds;
+        }
+        else
+        {
+            canvasInfo.timerLengthSeconds = lengthForTimer;
+        }
     }
 
     void UpdateTextMesh()
