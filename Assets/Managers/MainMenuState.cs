@@ -1,12 +1,19 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class MainMenuState : IGameState
 {
 
     public void OnEnter(GameStateController sc)
     {
-        Debug.Log("Main Menu State");
+        if (SceneManager.GetActiveScene().name != "MainMenuScene")
+        {
+            SceneManager.LoadScene("MainMenuScene");
+        }
         
+        CanvasManager canvasManager = CanvasManager.instance;
+
+        canvasManager.ActivateOnlyMainMenuPanel();
     }
     public void UpdateState(GameStateController sc)
     {

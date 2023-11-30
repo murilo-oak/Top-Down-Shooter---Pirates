@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -9,11 +10,16 @@ public class GameManager : MonoBehaviour
     public PlayerBoundsGenerator playerBoundsGenerator { get; private set; }
     private void Awake()
     {
-        if (instance != null && instance != this)
+        if (instance == null)
         {
-            Destroy(this);
-            return;
+            instance = this;
+            DontDestroyOnLoad(gameObject);
         }
+        else
+        {
+            Destroy(gameObject);
+        }
+
         instance = this;
 
         gameStateController = GetComponent<GameStateController>();
@@ -25,7 +31,19 @@ public class GameManager : MonoBehaviour
     {
         if(SceneManager.GetActiveScene().name == "MainMenuScene")
         {
-            gameStateController.ChangeState(gameStateController.menuState);
+            gameStateController.ChangeState(gameStateController.mainMenuState);
+            return;
         }
+
+        if (SceneManager.GetActiveScene().name == "GameplayScene")
+        {
+            gameStateController.ChangeState(gameStateController.gameplayState);
+        }
+    }
+
+    public void ResetScene()
+    {
+        string currentScene = SceneManager.GetActiveScene().name;
+        SceneManager.LoadScene(currentScene);
     }
 }

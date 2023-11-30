@@ -6,8 +6,10 @@ public class GameplayState : IGameState
 
     public void OnEnter(GameStateController sc)
     {
-        Debug.Log("Gameplay State");
-        SceneManager.LoadScene("GameplayScene");
+        if (SceneManager.GetActiveScene().name != "GameplayScene")
+        {
+            SceneManager.LoadScene("GameplayScene");
+        }
     }
     public void UpdateState(GameStateController sc)
     {
@@ -16,5 +18,6 @@ public class GameplayState : IGameState
 
     public void OnExit(GameStateController sc)
     {
+
     }
 }

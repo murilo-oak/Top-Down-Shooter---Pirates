@@ -36,7 +36,12 @@ public class HealthManager: MonoBehaviour
         {
             GameManager.instance.scoreManager.IncreaseScore();
         }
-
+        else
+        {
+            GameStateController gameStateController = GameManager.instance.gameStateController;
+            gameStateController.ChangeState(gameStateController.gameOverState);
+        }
+ 
         Destroy(gameObject);
     }
 }
