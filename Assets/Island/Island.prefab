@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5919345163350300039}
   - component: {fileID: 5370700918157579974}
   - component: {fileID: 7993044661985236856}
-  - component: {fileID: 473674298080452253}
+  - component: {fileID: 2810878957080117177}
   m_Layer: 8
   m_Name: Island
   m_TagString: Island
@@ -77,8 +77,8 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 126
   m_CollisionDetection: 0
---- !u!135 &473674298080452253
-SphereCollider:
+--- !u!65 &2810878957080117177
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -96,5 +96,5 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 0.53
+  m_Size: {x: 2.52, y: 2.63, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
