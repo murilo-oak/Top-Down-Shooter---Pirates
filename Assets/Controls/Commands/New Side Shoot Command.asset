@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5658f7e55a698e3419ce913abd49e99b, type: 3}
   m_Name: New Side Shoot Command
   m_EditorClassIdentifier: 
-  initialSpeed: 1
+  initialSpeed: 2
   bulletLifeTime: 5
   amountBulletsToShoot: 3

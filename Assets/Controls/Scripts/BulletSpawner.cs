@@ -7,7 +7,7 @@ using UnityEngine.UIElements;
 public class BulletSpawner : MonoBehaviour
 {
     public GameObject bulletPrefab;
-    [SerializeField] private ScaleManager scaleManager;
+    [SerializeField] private SideCannonPlacer scaleManager;
     [TagSelector] public string targetDamageTag;
     public void SpawnFrontBullet(float bulletLifeTime, float initialSpeed)
     {

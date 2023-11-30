@@ -33,18 +33,20 @@ public class HealthManager: MonoBehaviour
             return true;
         }
 
-        if (healthPercetage <= 0.3f)
+        if (hasGameObjectAnimator())
         {
-            animator.SetTrigger("onAlmostDying");
-            return false;
-        }
+            if (healthPercetage <= 0.3f)
+            {
+                animator.SetTrigger("onAlmostDying");
+                return false;
+            }
 
-        if (healthPercetage <= 0.75f)
-        {
-            animator.SetTrigger("onCharacterBelowHalfHealth");
-            return false;
+            if (healthPercetage <= 0.75f)
+            {
+                animator.SetTrigger("onCharacterBelowHalfHealth");
+                return false;
+            }
         }
-
         return false;
     }
 
@@ -61,5 +63,10 @@ public class HealthManager: MonoBehaviour
         }
  
         Destroy(gameObject);
+    }
+
+    private bool hasGameObjectAnimator()
+    {
+        return animator != null;
     }
 }

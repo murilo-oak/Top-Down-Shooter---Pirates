@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 660b4e3bbea80444eadb8c6bf8620687
+guid: 60e59afa647536d49bdd75b879e3c830
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -43,7 +43,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -108,70 +108,7 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites:
-    - serializedVersion: 2
-      name: Enemy_0_0
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 132
-        width: 113
-        height: 66
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: a825148574a86014abc053bd0e5a5eb5
-      internalID: -796775649
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Enemy_0_1
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 66
-        width: 113
-        height: 66
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 9ff129eed375d504c954a354a23a7242
-      internalID: -1845046402
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Enemy_0_2
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 0
-        width: 113
-        height: 66
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 7a890d6de3a627143baaadff35d78fe2
-      internalID: 85279193
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
+    sprites: []
     outline: []
     physicsShape: []
     bones: []
@@ -182,10 +119,7 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable:
-      Enemy_0_0: -796775649
-      Enemy_0_1: -1845046402
-      Enemy_0_2: 85279193
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
