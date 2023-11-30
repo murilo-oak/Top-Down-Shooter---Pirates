@@ -1,22 +1,23 @@
 using TMPro;
 using UnityEngine;
 
-public class TimerUI : MonoBehaviour
+public class InputTimerUI : MonoBehaviour
 {
     [SerializeField] TextMeshProUGUI textMesh;
-    
+    [SerializeField] CanvasInfo canvasInfo;
     int minutes = 3;
     int seconds = 0;
 
     private void Start()
     {
         TryParseTime(textMesh.text);
+        Update();
     }
 
     public void AddMinute()
     {
         minutes++;
-        UpdateTextMesh();
+        Update();
     }
 
     public void SubtractMinute()
@@ -26,7 +27,7 @@ public class TimerUI : MonoBehaviour
         {
             minutes = 0;
         }
-        UpdateTextMesh();
+        Update();
     }
 
     public void AddSecond()
@@ -38,7 +39,7 @@ public class TimerUI : MonoBehaviour
             seconds = 0;
         }
 
-        UpdateTextMesh();
+        Update();
     }
 
     public void SubtractSecond()
@@ -48,12 +49,22 @@ public class TimerUI : MonoBehaviour
         {
             seconds = 59;
         }
+        Update();
+    }
+
+    void Update()
+    {
+        StoreCanvasInfo();
         UpdateTextMesh();
+    }
+
+    void StoreCanvasInfo()
+    {
+        canvasInfo.timerLengthSeconds = minutes * 60 + seconds;
     }
 
     void UpdateTextMesh()
     {
-
         textMesh.text = $"{minutes:00}:{seconds:00}";
     }
 

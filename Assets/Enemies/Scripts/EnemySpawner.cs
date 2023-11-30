@@ -6,12 +6,14 @@ using UnityEngine.AI;
 
 public class EnemySpawner : MonoBehaviour
 {
-    [Min(0.01f)][SerializeField] float timerToSpawnNewEnemy = 1f;
+    [Min(0.01f)][SerializeField] float frequencyToSpawnNewEnemy = 1f;
     public List<GameObject> enemyTypes = new List<GameObject>();
+    [SerializeField] CanvasInfo optionsMenuInfo;
 
     void Start()
     {
         StartCoroutine(SpawnEnemy());
+        frequencyToSpawnNewEnemy = optionsMenuInfo.timerLengthSeconds;
     }
 
     IEnumerator SpawnEnemy()
@@ -21,16 +23,16 @@ public class EnemySpawner : MonoBehaviour
 
         Vector3 point;
         
-        if (RandomPoint(out point))
+        if (TryCreateRandomPoint(out point))
         {
             Instantiate(enemyTypes[randomIndex], point, Quaternion.identity);
         }
 
-        yield return new WaitForSeconds(timerToSpawnNewEnemy);
+        yield return new WaitForSeconds(frequencyToSpawnNewEnemy);
         StartCoroutine(SpawnEnemy());
     }
 
-    bool RandomPoint(out Vector3 result)
+    bool TryCreateRandomPoint(out Vector3 result)
     {
         for (int i = 0; i < 30; i++)
         {

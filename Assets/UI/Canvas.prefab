@@ -116,6 +116,14 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 2230463694330691276}
+    - target: {fileID: 5450103830162117045, guid: 76f9ded648e4bc74489889028a108f4d, type: 3}
+      propertyPath: canvasInfo
+      value: 
+      objectReference: {fileID: 11400000, guid: f9c450af6e0344341bacbfad947bed11, type: 2}
+    - target: {fileID: 8609460031749718697, guid: 76f9ded648e4bc74489889028a108f4d, type: 3}
+      propertyPath: m_text
+      value: 01:00
+      objectReference: {fileID: 0}
     - target: {fileID: 8654592016583508804, guid: 76f9ded648e4bc74489889028a108f4d, type: 3}
       propertyPath: m_Name
       value: Options Panel

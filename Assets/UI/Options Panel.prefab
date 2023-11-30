@@ -548,6 +548,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   textMesh: {fileID: 5606018660006131683}
+  canvasInfo: {fileID: 11400000, guid: 707ce1e41539ee9479b042451e4c55e4, type: 2}
 --- !u!1 &1922186602489578790
 GameObject:
   m_ObjectHideFlags: 0
@@ -3035,6 +3036,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   textMesh: {fileID: 8609460031749718697}
+  canvasInfo: {fileID: 11400000, guid: 707ce1e41539ee9479b042451e4c55e4, type: 2}
 --- !u!1 &8654592016583508804
 GameObject:
   m_ObjectHideFlags: 0
