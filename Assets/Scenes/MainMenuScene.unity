@@ -209,6 +209,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2230463694330691276, guid: 957f7aa0eec4d9743afe4b13e4cd721c, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2689104871610488473, guid: 957f7aa0eec4d9743afe4b13e4cd721c, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -293,6 +297,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6789470581271177507, guid: 957f7aa0eec4d9743afe4b13e4cd721c, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7555863330708611543, guid: 957f7aa0eec4d9743afe4b13e4cd721c, type: 3}
       propertyPath: m_Name
       value: Canvas
@@ -303,7 +311,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8893577116875860041, guid: 957f7aa0eec4d9743afe4b13e4cd721c, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -496,6 +504,17 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &836178470 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3355997214389833325, guid: 957f7aa0eec4d9743afe4b13e4cd721c, type: 3}
+  m_PrefabInstance: {fileID: 46296614}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1269406455
 GameObject:
   m_ObjectHideFlags: 0
@@ -667,6 +686,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 431337708283647570, guid: 089555a46e52499419d1d1193a59ebe2, type: 3}
+      propertyPath: scoreWinText
+      value: 
+      objectReference: {fileID: 836178470}
     - target: {fileID: 7945214452690483733, guid: 089555a46e52499419d1d1193a59ebe2, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

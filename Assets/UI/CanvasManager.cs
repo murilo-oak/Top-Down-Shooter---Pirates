@@ -1,3 +1,4 @@
+using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -10,6 +11,8 @@ public class CanvasManager : MonoBehaviour
     [SerializeField] GameObject mainMenuPanel;
     [SerializeField] GameObject optionsPanel;
     [SerializeField] GameObject gameOverPanel;
+    [SerializeField] GameObject winPanel;
+    [SerializeField] TextMeshProUGUI scoreWinText;
 
     private void Awake()
     {
@@ -50,6 +53,7 @@ public class CanvasManager : MonoBehaviour
         mainMenuPanel = canvasTf.Find("Main Menu").gameObject;
         optionsPanel = canvasTf.Find("Options Panel").gameObject;
         gameOverPanel = canvasTf.Find("Game Over Menu").gameObject;
+        winPanel = canvasTf.Find("Win Screen").gameObject;
     }
 
     public void DeactivateAllCanvas()
@@ -57,6 +61,7 @@ public class CanvasManager : MonoBehaviour
         mainMenuPanel.SetActive(false);
         optionsPanel.SetActive(false);
         gameOverPanel.SetActive(false);
+        winPanel.SetActive(false);
     }
 
     public void ActivateOnlyMainMenuPanel()
@@ -64,6 +69,7 @@ public class CanvasManager : MonoBehaviour
         mainMenuPanel.SetActive(true);
         optionsPanel.SetActive(false);
         gameOverPanel.SetActive(false);
+        winPanel.SetActive(false);
     }
 
     public void ActivateOnlyOptionsPanel()
@@ -71,11 +77,27 @@ public class CanvasManager : MonoBehaviour
         mainMenuPanel.SetActive(false);
         optionsPanel.SetActive(true);
         gameOverPanel.SetActive(false);
+        winPanel.SetActive(false);
     }
     public void ActivateOnlyGameOverPanel()
     {
         mainMenuPanel.SetActive(false);
         optionsPanel.SetActive(false);
         gameOverPanel.SetActive(true);
+        winPanel.SetActive(false);
+    }
+
+    public void ActivateOnlyWinPanel()
+    {
+        mainMenuPanel.SetActive(false);
+        optionsPanel.SetActive(false);
+        gameOverPanel.SetActive(false);
+        winPanel.SetActive(true);
+    }
+
+    public void UpdateScoreWinUI()
+    {
+        int score = GameManager.instance.scoreManager.score;
+        scoreWinText.text = "WIN\n" + score.ToString();
     }
 }

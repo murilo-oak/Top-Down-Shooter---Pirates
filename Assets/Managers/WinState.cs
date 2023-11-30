@@ -1,11 +1,12 @@
 using UnityEngine;
 
-public class GameOverState : IGameState
+public class WinState : IGameState
 {
     public void OnEnter(GameStateController sc)
     {
         CanvasManager canvasManager = CanvasManager.instance;
-        canvasManager.ActivateOnlyGameOverPanel();
+        canvasManager.ActivateOnlyWinPanel();
+        canvasManager.UpdateScoreWinUI();
         GameManager.instance.PauseGame();
     }
     public void UpdateState(GameStateController sc)

@@ -23,7 +23,7 @@ public class CheckObstacleAhead : Node
 
         Transform targetTf = (Transform)target;
 
-        if (ThereIsNoObstacleAhead(targetTf))
+        if (targetTf != null && ThereIsNoObstacleAhead(targetTf))
         {
             state = NodeState.Success;
             return state;

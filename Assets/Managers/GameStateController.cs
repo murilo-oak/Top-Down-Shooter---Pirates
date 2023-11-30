@@ -6,6 +6,7 @@ public class GameStateController : MonoBehaviour
     public IGameState mainMenuState { get; private set; } = new MainMenuState();
     public IGameState gameplayState { get; private set; } = new GameplayState();
     public IGameState gameOverState { get; private set; } = new GameOverState();
+    public IGameState winState { get; private set; } = new WinState();
 
     private void Start()
     {
