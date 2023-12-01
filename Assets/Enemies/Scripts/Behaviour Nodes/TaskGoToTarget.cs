@@ -3,6 +3,7 @@ using BehaviorTree;
 using Controls;
 using Utils;
 using UnityEngine.AI;
+using static UnityEngine.GraphicsBuffer;
 
 public class TaskGoToTarget : Node
 {
@@ -27,18 +28,25 @@ public class TaskGoToTarget : Node
 
     public override NodeState Evaluate()
     {
-        Transform target = (Transform)GetData("target");
+        Transform targetTf = (Transform)GetData("target");
 
-        if (target != null)
+        if (FoundTarget(targetTf) && PathToTargetExists(targetTf))
         {
-            if (NavMesh.CalculatePath(transform.position, target.position, NavMesh.AllAreas, pathToTarget))
-            {
-                MoveAlongPath(pathToTarget.corners[1]);
-            }
+            MoveAlongPath(pathToTarget.corners[1]);
         }
         
         state = NodeState.Running;
         return state;
+    }
+
+    bool PathToTargetExists(Transform targetTf)
+    {
+        return NavMesh.CalculatePath(transform.position, targetTf.position, NavMesh.AllAreas, pathToTarget);
+    }
+
+    bool FoundTarget(object target)
+    {
+        return target != null;
     }
 
     void MoveAlongPath(Vector3 nextCorner)
@@ -49,13 +57,8 @@ public class TaskGoToTarget : Node
 
     void RotateToTarget(Vector3 targetPos)
     {
-        Vector3 facePointingDirection = transform.right;
-        Vector3 TargetDirection = Vector3.Normalize(targetPos - transform.position);
 
-        float det = MathHelper.Determinant(facePointingDirection, TargetDirection);
-        bool shouldRotateAntiClockwise = det > 0 && Mathf.Abs(det) > 0.01f;
-
-        if (shouldRotateAntiClockwise)
+        if (ShouldRotateAntiClockwise(targetPos))
         {
             rotateAnticlockwiseCommand.Execute(transform.gameObject);
         }
@@ -63,5 +66,15 @@ public class TaskGoToTarget : Node
         {
             rotateClockwiseCommand.Execute(transform.gameObject);
         }
+    }
+
+    bool ShouldRotateAntiClockwise(Vector3 targetPos)
+    {
+        Vector3 facePointingDirection = transform.right;
+        Vector3 TargetDirection = Vector3.Normalize(targetPos - transform.position);
+
+        float det = MathHelper.Determinant(facePointingDirection, TargetDirection);
+        
+        return det > 0 && Mathf.Abs(det) > 0.01f;
     }
 }

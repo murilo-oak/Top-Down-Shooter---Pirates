@@ -35,7 +35,7 @@ public class ShooterEnemyBT : BTree
             new Sequence(new List<Node>
             {
                 new CheckPlayerInAttackRange(transform, attackRange),
-                new CheckObstacleAhead(transform),
+                new CheckNoObstacleAhead(transform),
                 new TaskShoot(transform, bulletSpawner, rotateClockwiseCommand, rotateAnticlockwiseCommand),
             }),
             new Sequence(new List<Node>

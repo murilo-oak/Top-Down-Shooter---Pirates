@@ -235,7 +235,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 8
   m_Sprite: {fileID: -74294912, guid: b8f1f20991feabe4788563a59214af28, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 1
@@ -266,7 +266,6 @@ MonoBehaviour:
   waitingTimePatrol: 5
   waypoints: []
   fovRange: 0.97
-  movementTriggerDistance: 2.5
   attackRange: 5
 --- !u!114 &5361736749976294257
 MonoBehaviour:
@@ -312,5 +311,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   deathExplosionAnimation: {fileID: 1559278399423953568, guid: cb1192dc92b339647a0dd3bf0af0057f, type: 3}
-  player: {fileID: 0}
   healthBarUIPrefab: {fileID: 4366982735633370928, guid: 424892a4624b50d4ca56d66ada4f6a9c, type: 3}

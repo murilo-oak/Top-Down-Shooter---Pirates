@@ -1,11 +1,11 @@
 using UnityEngine;
 using BehaviorTree;
 
-public class CheckObstacleAhead : Node
+public class CheckNoObstacleAhead : Node
 {
     private readonly Transform transform;
 
-    public CheckObstacleAhead(Transform transform)
+    public CheckNoObstacleAhead(Transform transform)
     {
         this.transform = transform;
     }
@@ -14,8 +14,7 @@ public class CheckObstacleAhead : Node
     {
         object target = GetData("target");
 
-        bool notFoundTarget = target == null;
-        if (notFoundTarget)
+        if (!FoundTarget(target))
         {
             state = NodeState.Failure;
             return state;
@@ -23,7 +22,7 @@ public class CheckObstacleAhead : Node
 
         Transform targetTf = (Transform)target;
 
-        if (targetTf != null && ThereIsNoObstacleAhead(targetTf))
+        if (ThereIsNoObstacleAhead(targetTf))
         {
             state = NodeState.Success;
             return state;
@@ -34,6 +33,10 @@ public class CheckObstacleAhead : Node
         return state;
     }
 
+    bool FoundTarget(object target)
+    {
+        return target != null;
+    }
     bool ThereIsNoObstacleAhead(Transform targetTf)
     {
         RaycastHit hit;
@@ -44,7 +47,7 @@ public class CheckObstacleAhead : Node
         Physics.Raycast(ray, out hit, vectorDirPlayerToTarget.magnitude, ignoreLayerMask);
 
 
-        bool isObstacleBlockingView = (hit.collider.tag == "Island");
+        bool isObstacleBlockingView = hit.collider.CompareTag("Island");
         return !isObstacleBlockingView; 
     }
 }

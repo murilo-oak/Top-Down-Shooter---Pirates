@@ -47,15 +47,24 @@ namespace BehaviorTree
         public object GetData(string key)
         {
             object value = null;
-            if (dataContext.TryGetValue(key, out value))
-                return value;
 
+            // Checks if the key is present in the local data context
+            if (dataContext.TryGetValue(key, out value)) 
+            {
+                return value;
+            }
+
+            // If not present, recursively searches in parent nodes.
             Node node = parent;
-            while(node != null)
+
+            while (node != null)
             {
                 value = node.GetData(key);
+
                 if (value != null)
+                {
                     return value;
+                }
                 node = node.parent;
             }
 
@@ -64,19 +73,23 @@ namespace BehaviorTree
 
         public bool ClearData(string key)
         {
+            // Checks if the key is present in the local data context.
             if (dataContext.ContainsKey(key))
             {
                 dataContext.Remove(key);
                 return true;
             }
-            
+
+            // If not present, recursively searches in parent nodes.
             Node node = parent;
             
             while (node != null)
             {
                 bool cleared = node.ClearData(key);
-                if (cleared)
+                if (cleared) 
+                {
                     return true;
+                }
                 node = node.parent;
             }
 

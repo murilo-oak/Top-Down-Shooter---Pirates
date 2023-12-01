@@ -6,6 +6,8 @@ namespace BehaviorTree {
     {
         public Sequence() : base() { }
         public Sequence(List<Node> children) : base(children) { }
+
+        // Returns Running if any child is running. Returns Failure if any child fails.
         public override NodeState Evaluate()
         {
             bool anyChildIsRunning = false;

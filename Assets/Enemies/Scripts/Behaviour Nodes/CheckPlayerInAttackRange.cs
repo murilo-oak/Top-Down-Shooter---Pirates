@@ -1,5 +1,6 @@
 using UnityEngine;
 using BehaviorTree;
+using static UnityEngine.GraphicsBuffer;
 
 
 public class CheckPlayerInAttackRange : Node
@@ -18,17 +19,16 @@ public class CheckPlayerInAttackRange : Node
     {
         object target = GetData("target");
 
-        bool notFoundTarget = target == null;
-        if (notFoundTarget)
+        if (!FoundTarget(target))
         {
             state = NodeState.Failure;
             return state;
         }
 
         Transform targetTf = (Transform)target;
-        bool isInAttackRange = targetTf != null ? (Vector3.Distance(transform.position, targetTf.position) <= attackRange) : false;
 
-        if (isInAttackRange)
+
+        if (HasTransformComponent(targetTf) && IsInAttackRange(targetTf))
         {
             state = NodeState.Success;
             return state;
@@ -37,5 +37,20 @@ public class CheckPlayerInAttackRange : Node
 
         state = NodeState.Failure;
         return state;
+    }
+
+    bool FoundTarget(object target)
+    {
+        return target != null;
+    }
+
+    bool HasTransformComponent(Transform targetTf)
+    {
+        return targetTf != null;
+    }
+
+    private bool IsInAttackRange(Transform targetTf)
+    {
+        return Vector3.Distance(transform.position, targetTf.position) <= attackRange;
     }
 }

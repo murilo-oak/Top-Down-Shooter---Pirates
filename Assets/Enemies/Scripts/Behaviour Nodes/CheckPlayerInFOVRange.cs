@@ -18,9 +18,8 @@ public class CheckPlayerInFOVRange : Node
     public override NodeState Evaluate()
     {
         object target = GetData("target");
-        bool notFoundTarget = target == null;
 
-        if (notFoundTarget)
+        if (!FoundTarget(target))
         {
 
             if (TryToFindTargets())
@@ -35,6 +34,10 @@ public class CheckPlayerInFOVRange : Node
 
         state = NodeState.Success;
         return state;
+    }
+    bool FoundTarget(object target)
+    {
+        return target != null;
     }
 
     bool TryToFindTargets()

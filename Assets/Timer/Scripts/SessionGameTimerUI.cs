@@ -42,8 +42,10 @@ public class SessionGameTimerUI : MonoBehaviour
     {
         counter -= Time.deltaTime;
         counter = Mathf.Max(0, counter);
+
         int seconds = Mathf.FloorToInt(counter % 60);
         int minutes = Mathf.FloorToInt(counter / 60);
+
         UpdateTextMesh(minutes, seconds);
     }
 
