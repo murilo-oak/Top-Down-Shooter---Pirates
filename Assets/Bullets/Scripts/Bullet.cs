@@ -3,26 +3,35 @@ using UnityEngine;
 public class Bullet : MonoBehaviour
 {
     [Min(0)]
-    public int damage = 1;
+    public int damagePoints = 1;
 
     [TagSelector] public string targetDamageTag;
+    GameObject targetGameObject;
 
     private void OnTriggerEnter(Collider collision)
     {
-        GameObject targetGameObject = collision.gameObject;
-        bool canDealDamageOnTarget = targetGameObject.CompareTag(targetDamageTag);
+        targetGameObject = collision.gameObject;
 
-        if (targetGameObject.CompareTag("Island"))
+        if (BulletHitIsland())
         {
             Destroy(this.gameObject);
             return;
         }
 
-        if (canDealDamageOnTarget)
+        if (CanDealDamageOnTarget())
         {
-            targetGameObject.GetComponent<HealthManager>().TakeDamage(damage);
+            targetGameObject.GetComponent<HealthManager>().TakeDamage(damagePoints);
             Destroy(this.gameObject);
         }
+    }
+
+    private bool BulletHitIsland()
+    {
+        return targetGameObject.CompareTag("Island");
+    }
+    private bool CanDealDamageOnTarget()
+    {
+        return targetGameObject.CompareTag(targetDamageTag); 
     }
 
     public void SetTargetTagDamage(string targetDamageTag)

@@ -6,7 +6,7 @@ public class BulletParrametersPlacer : MonoBehaviour
     [Range(0.1f, 10f)] public float shipSizeHeight = 1f;
     [Range(-10f, 10f)] public float frontCannonBulletStartPositionOffset;
 
-
+#if UNITY_EDITOR
     private void OnDrawGizmos()
     {
         float halfsizeWidth = shipSizeWidth / 2;
@@ -23,5 +23,5 @@ public class BulletParrametersPlacer : MonoBehaviour
         Gizmos.color = Color.blue;
         Gizmos.DrawCube(position + transform.right * frontCannonBulletStartPositionOffset, 0.2f * Vector3.one);
     }
-
+#endif
 }

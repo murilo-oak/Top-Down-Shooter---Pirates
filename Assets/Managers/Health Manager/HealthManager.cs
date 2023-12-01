@@ -11,7 +11,7 @@ public class HealthManager: MonoBehaviour
 
     Animator animator;
 
-    [SerializeField] ExplosionAnimation deathExplosionAnimation;
+    [SerializeField] AnimationExplosionManager deathExplosionAnimation;
     [SerializeField] GameObject healthBarUIPrefab;
     GameObject healthBarUI;
     HealthBarColorManager healthBarcolorManager;
@@ -120,6 +120,6 @@ public class HealthManager: MonoBehaviour
 
     IEnumerator SleepUntilDeathAnimationEnds()
     {
-        yield return new WaitForSeconds(ExplosionAnimation.animationLength + 0.1f);
+        yield return new WaitForSeconds(AnimationExplosionManager.animationLength + 0.1f);
     }
 }
