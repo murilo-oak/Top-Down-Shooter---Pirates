@@ -48,7 +48,7 @@ MonoBehaviour:
   enemyTypes:
   - {fileID: 6989046945335450411, guid: 2a20577e566d1564c923dd3e08b0f3fe, type: 3}
   - {fileID: 6989046945335450411, guid: d496c9ec769b6424fb01c016daf362ae, type: 3}
-  optionsMenuInfo: {fileID: 11400000, guid: f9c450af6e0344341bacbfad947bed11, type: 2}
+  frequencySpawn: {fileID: 11400000, guid: f9c450af6e0344341bacbfad947bed11, type: 2}
   playerBoundsGenerator: {fileID: 0}
   playerTf: {fileID: 0}
-  minSpawnDistanceToPlayer: 2.8
+  minSpawnDistanceToPlayer: 4

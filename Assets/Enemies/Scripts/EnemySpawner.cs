@@ -6,10 +6,11 @@ using UnityEngine.AI;
 
 public class EnemySpawner : MonoBehaviour
 {
-    [Min(0.01f)][SerializeField] float frequencyToSpawnNewEnemy = 1f;
+    [SerializeField] CanvasInfo frequencySpawn;
+
+    float frequencyToSpawnNewEnemy = 1f;
     public List<GameObject> enemyTypes = new List<GameObject>();
-    
-    [SerializeField] CanvasInfo optionsMenuInfo;
+   
     [SerializeField] PlayerBoundsGenerator playerBoundsGenerator;
 
     [SerializeField] Transform playerTf;
@@ -18,7 +19,7 @@ public class EnemySpawner : MonoBehaviour
     void Start()
     {
         StartCoroutine(SpawnEnemy());
-        frequencyToSpawnNewEnemy = optionsMenuInfo.timerLengthSeconds;
+        frequencyToSpawnNewEnemy = frequencySpawn.timerLengthSeconds;
         if(frequencyToSpawnNewEnemy <= 0)
             frequencyToSpawnNewEnemy = 1;
     }
