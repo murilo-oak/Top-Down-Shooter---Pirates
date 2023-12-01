@@ -14,23 +14,15 @@ public class BulletSpawner : MonoBehaviour
 
     public void SpawnFrontBullet(float bulletLifeTime, float initialSpeed)
     {
+        //Front cannon tip position.
         Vector3 spawnPosition = transform.position + transform.right * cannonPositionsParrametersPlacer.frontCannonBulletStartPositionOffset;
-        GameObject bulletSpawned = Instantiate(bulletPrefab, spawnPosition, Quaternion.identity);
-        Rigidbody rbBullet = bulletSpawned.GetComponent<Rigidbody>();
 
-        rbBullet.AddForce(transform.right * initialSpeed, ForceMode.Impulse);
-        bulletSpawned.GetComponent<Bullet>().SetTargetTagDamage(targetDamageTag);
-        
-        
-        GameObject newExplosion = Instantiate(bulletExplosionAnimation, rbBullet.position, Quaternion.identity);
-        newExplosion.transform.SetParent(transform);
-        newExplosion.transform.localScale = 0.5f * Vector3.one;
-        Destroy(bulletSpawned, bulletLifeTime);
+        SpawnBullet(spawnPosition, transform.right, initialSpeed, bulletLifeTime);
     }
 
     public void SpawnSideBullets(float bulletLifeTime, float initialSpeed, int amountBulletsToShoot)
     {
-        Vector3 sideDir = gameObject.transform.up;
+        Vector3 shipSideDir = gameObject.transform.up;
         Vector3 position = transform.position;
 
         float halfsizeWidth = cannonPositionsParrametersPlacer.shipSizeWidth/2;
@@ -42,22 +34,41 @@ public class BulletSpawner : MonoBehaviour
             {
                 float interpolator = i/(float)(amountBulletsToShoot-1);
                 
-                Vector3 bulletPos = Vector3.Lerp(position + transform.right * halfsizeWidth + transform.up * shipSizeHeight, position - transform.right * halfsizeWidth + transform.up * shipSizeHeight, interpolator);
-                
-                GameObject bulletSpawned = Instantiate(bulletPrefab, bulletPos, Quaternion.identity);
-                Rigidbody rbBullet = bulletSpawned.GetComponent<Rigidbody>();
-                
-                rbBullet.AddForce(sideDir * initialSpeed, ForceMode.Impulse);
-                bulletSpawned.GetComponent<Bullet>().SetTargetTagDamage(targetDamageTag);
+                //Spawn bullets along Ship side.
+                Vector3 spawnPosition = Vector3.Lerp(position + transform.right * halfsizeWidth + transform.up * shipSizeHeight,
+                                                     position - transform.right * halfsizeWidth + transform.up * shipSizeHeight, 
+                                                     interpolator);
 
-                GameObject newExplosion = Instantiate(bulletExplosionAnimation, rbBullet.position, Quaternion.identity);
-                newExplosion.transform.SetParent(transform);
-                newExplosion.transform.localScale = 0.5f * Vector3.one;
-
-                Destroy(bulletSpawned, bulletLifeTime);
+                SpawnBullet(spawnPosition, shipSideDir, initialSpeed, bulletLifeTime);
             }
-            sideDir = -sideDir;
-            position -= 2 * shipSizeHeight * transform.up;
+
+            UpdateSideDirectionAndPosition(ref shipSideDir, ref position, shipSizeHeight);
         }
+    }
+
+    void SpawnBullet(Vector3 spawnPosition, Vector3 direction, float initialSpeed, float bulletLifeTime)
+    {
+        GameObject bulletSpawned = Instantiate(bulletPrefab, spawnPosition, Quaternion.identity);
+        Rigidbody rbBullet = bulletSpawned.GetComponent<Rigidbody>();
+
+        rbBullet.AddForce(direction* initialSpeed, ForceMode.Impulse);
+        bulletSpawned.GetComponent<Bullet>().SetTargetTagDamage(targetDamageTag);
+
+        Destroy(bulletSpawned, bulletLifeTime);
+
+        SpawnBulletExplosion(spawnPosition);
+    }
+
+    void SpawnBulletExplosion(Vector3 position)
+    {
+        GameObject newExplosion = Instantiate(bulletExplosionAnimation, position, Quaternion.identity);
+        newExplosion.transform.SetParent(transform);
+        newExplosion.transform.localScale = 0.5f * Vector3.one;
+    }
+
+    private void UpdateSideDirectionAndPosition(ref Vector3 sideDir, ref Vector3 position, float shipHalfSizeHeight)
+    {
+        sideDir = -sideDir;
+        position -= 2 * shipHalfSizeHeight * transform.up;
     }
 }
