@@ -978,32 +978,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1005760394}
   m_CullTransparentMesh: 1
---- !u!1 &1078530206 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4912666370319857101, guid: d592ec5a3db2877499f8286d334533cd, type: 3}
-  m_PrefabInstance: {fileID: 1305313264}
-  m_PrefabAsset: {fileID: 0}
---- !u!65 &1078530211
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1078530206}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 3.49, y: 3.76, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1118507226
 GameObject:
   m_ObjectHideFlags: 0
@@ -1201,11 +1175,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7250483116577443147, guid: 2a20577e566d1564c923dd3e08b0f3fe, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -7.16
+      value: -4.73
       objectReference: {fileID: 0}
     - target: {fileID: 7250483116577443147, guid: 2a20577e566d1564c923dd3e08b0f3fe, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.48
+      value: -1.06
       objectReference: {fileID: 0}
     - target: {fileID: 7250483116577443147, guid: 2a20577e566d1564c923dd3e08b0f3fe, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1257,6 +1231,14 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2810878957080117177, guid: d592ec5a3db2877499f8286d334533cd, type: 3}
+      propertyPath: m_Size.x
+      value: 3.61
+      objectReference: {fileID: 0}
+    - target: {fileID: 2810878957080117177, guid: d592ec5a3db2877499f8286d334533cd, type: 3}
+      propertyPath: m_Size.y
+      value: 4.12
+      objectReference: {fileID: 0}
     - target: {fileID: 4912666370319857101, guid: d592ec5a3db2877499f8286d334533cd, type: 3}
       propertyPath: m_Name
       value: Island (1)
@@ -1267,7 +1249,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5370700918157579974, guid: d592ec5a3db2877499f8286d334533cd, type: 3}
       propertyPath: m_Extents.x
-      value: 2.06
+      value: 2.37
       objectReference: {fileID: 0}
     - target: {fileID: 5370700918157579974, guid: d592ec5a3db2877499f8286d334533cd, type: 3}
       propertyPath: m_Extents.y
@@ -1275,7 +1257,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5370700918157579974, guid: d592ec5a3db2877499f8286d334533cd, type: 3}
       propertyPath: m_Extents.z
-      value: 2.06
+      value: 2.37
       objectReference: {fileID: 0}
     - target: {fileID: 5919345163350300039, guid: d592ec5a3db2877499f8286d334533cd, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1320,10 +1302,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 4912666370319857101, guid: d592ec5a3db2877499f8286d334533cd, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1078530211}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d592ec5a3db2877499f8286d334533cd, type: 3}
 --- !u!1 &1314095385
 GameObject:
@@ -2729,7 +2708,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2810878957080117177, guid: d592ec5a3db2877499f8286d334533cd, type: 3}
       propertyPath: m_Size.x
-      value: 6.28
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 2810878957080117177, guid: d592ec5a3db2877499f8286d334533cd, type: 3}
       propertyPath: m_Size.y
@@ -2741,7 +2720,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2810878957080117177, guid: d592ec5a3db2877499f8286d334533cd, type: 3}
       propertyPath: m_Center.y
-      value: 0.49
+      value: 0.53
       objectReference: {fileID: 0}
     - target: {fileID: 4912666370319857101, guid: d592ec5a3db2877499f8286d334533cd, type: 3}
       propertyPath: m_Name
@@ -2761,7 +2740,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5370700918157579974, guid: d592ec5a3db2877499f8286d334533cd, type: 3}
       propertyPath: m_Extents.x
-      value: 3.59
+      value: 3.83
       objectReference: {fileID: 0}
     - target: {fileID: 5370700918157579974, guid: d592ec5a3db2877499f8286d334533cd, type: 3}
       propertyPath: m_Extents.y
@@ -2769,7 +2748,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5370700918157579974, guid: d592ec5a3db2877499f8286d334533cd, type: 3}
       propertyPath: m_Extents.z
-      value: 3.59
+      value: 3.83
       objectReference: {fileID: 0}
     - target: {fileID: 5919345163350300039, guid: d592ec5a3db2877499f8286d334533cd, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2924,19 +2903,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3355997214389833325, guid: 957f7aa0eec4d9743afe4b13e4cd721c, type: 3}
       propertyPath: m_fontColor.b
-      value: 0.5767177
+      value: 0.8033998
       objectReference: {fileID: 0}
     - target: {fileID: 3355997214389833325, guid: 957f7aa0eec4d9743afe4b13e4cd721c, type: 3}
       propertyPath: m_fontColor.g
-      value: 0.7997938
+      value: 0.91120064
       objectReference: {fileID: 0}
     - target: {fileID: 3355997214389833325, guid: 957f7aa0eec4d9743afe4b13e4cd721c, type: 3}
       propertyPath: m_fontColor.r
-      value: 0.9056604
+      value: 0.9622642
       objectReference: {fileID: 0}
     - target: {fileID: 3355997214389833325, guid: 957f7aa0eec4d9743afe4b13e4cd721c, type: 3}
       propertyPath: m_fontColor32.rgba
-      value: 4287876327
+      value: 4291684597
       objectReference: {fileID: 0}
     - target: {fileID: 5347684789811078589, guid: 957f7aa0eec4d9743afe4b13e4cd721c, type: 3}
       propertyPath: m_Colors.m_SelectedColor.b
@@ -2981,6 +2960,10 @@ PrefabInstance:
     - target: {fileID: 7555863330708611543, guid: 957f7aa0eec4d9743afe4b13e4cd721c, type: 3}
       propertyPath: m_Name
       value: Canvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 7555863330708611543, guid: 957f7aa0eec4d9743afe4b13e4cd721c, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8920058617998680608, guid: 957f7aa0eec4d9743afe4b13e4cd721c, type: 3}
       propertyPath: m_Colors.m_SelectedColor.b
@@ -3460,6 +3443,10 @@ PrefabInstance:
     - target: {fileID: 8206298384110266935, guid: 5f220c4a04cbbe748a1c54434785ed60, type: 3}
       propertyPath: m_Layer
       value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8206298384110266935, guid: 5f220c4a04cbbe748a1c54434785ed60, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8619545744077464930, guid: 5f220c4a04cbbe748a1c54434785ed60, type: 3}
       propertyPath: shipSize

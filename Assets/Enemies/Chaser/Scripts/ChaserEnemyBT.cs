@@ -14,12 +14,11 @@ public class ChaserEnemyBT : BTree
     private void Start()
     {
         root = SetupTree();
+        GameObject playerGameObject = GameObject.Find("Player");
         
-        Transform player = GameObject.Find("Player").transform;
-        
-        if(player != null)
+        if(playerGameObject != null)
         {
-            root.SetData("target", player);
+            root.SetData("target", playerGameObject.transform);
         }
     }
     protected override Node SetupTree()

@@ -69,10 +69,12 @@ Shader "Unlit/HealthBarShader"
             {
                 float4 bgColor = float4(0,0,0,0);
                 
+                // Calculate t value based on health range
                 float t = saturate(InverseLerp(_ColorStart, _ColorEnd,_Health));
                 t = smoothstep(0, 1, t);
                 float4 _ColorOut = lerp(_ColorA, _ColorB, t);
-                    
+                
+                // Apply health mask to blend color with background
                 float HealthMask = (_Health > i.uv.x);
                 _ColorOut = lerp(bgColor,_ColorOut, HealthMask);
                 return _ColorOut;

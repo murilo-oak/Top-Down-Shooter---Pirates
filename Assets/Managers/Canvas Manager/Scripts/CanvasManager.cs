@@ -97,6 +97,6 @@ public class CanvasManager : MonoBehaviour
     public void UpdateScoreWinUI()
     {
         int score = GameManager.instance.scoreManager.score;
-        scoreWinText.text = "WIN\n" + score.ToString();
+        scoreWinText.text = "WIN SCORE\n" + score.ToString();
     }
 }
