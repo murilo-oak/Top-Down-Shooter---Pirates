@@ -13,8 +13,8 @@ namespace Controls
 
     public class InputHandler : MonoBehaviour
     {
-
         List<ActionCommandPair> actionCommandList = new List<ActionCommandPair>();
+
         public Dictionary<InputAction, BaseCommand> bindActions = new Dictionary<InputAction, BaseCommand>();
         public Dictionary<BaseCommand, InputAction> reversedBindActions = new Dictionary<BaseCommand, InputAction>();
 
@@ -45,14 +45,24 @@ namespace Controls
 
         public void UpdateActionsCommandsBindings()
         {
-            bindActions.Clear();
-            reversedBindActions.Clear();
+            ClearActions();
             foreach (var acp in actionCommandList)
             {
-                bindActions[acp.key] = acp.val;
-                reversedBindActions[acp.val] = acp.key;
-                acp.key.Enable();
+                UpdateActionBinding(acp);
             }
+        }
+
+        private void ClearActions()
+        {
+            bindActions.Clear();
+            reversedBindActions.Clear();
+        }
+
+        private void UpdateActionBinding(ActionCommandPair acp)
+        {
+            bindActions[acp.key] = acp.val;
+            reversedBindActions[acp.val] = acp.key;
+            acp.key.Enable();
         }
 
         public void UpdateActionsCommandsList(List<ActionCommandPair> aList)
