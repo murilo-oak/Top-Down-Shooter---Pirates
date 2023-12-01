@@ -9,6 +9,7 @@ public class EnemySpawner : MonoBehaviour
     [Min(0.01f)][SerializeField] float frequencyToSpawnNewEnemy = 1f;
     public List<GameObject> enemyTypes = new List<GameObject>();
     [SerializeField] CanvasInfo optionsMenuInfo;
+    [SerializeField] PlayerBoundsGenerator playerBoundsGenerator;
 
     void Start()
     {
@@ -41,8 +42,8 @@ public class EnemySpawner : MonoBehaviour
         {
             Vector3 randomPoint = Random.insideUnitSphere;
 
-            randomPoint.x *= GameManager.instance.playerBoundsGenerator.width/2;
-            randomPoint.y *= GameManager.instance.playerBoundsGenerator.height/2;
+            randomPoint.x *= playerBoundsGenerator.width/2;
+            randomPoint.y *= playerBoundsGenerator.height/2;
             
             NavMeshHit hit;
 
