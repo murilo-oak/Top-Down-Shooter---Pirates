@@ -12,7 +12,7 @@ public class MainMenuState : IGameState
         }
         
         CanvasManager canvasManager = CanvasManager.instance;
-
+        canvasManager.UpdateCurrentSceneCanvas();
         canvasManager.ActivateOnlyMainMenuPanel();
     }
     public void UpdateState(GameStateController sc)
