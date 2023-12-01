@@ -1,4 +1,4 @@
-﻿# Crazy Top Down Shooter 🚀
+﻿# Top Down Shooter 🚀
 
 ## Control Instructions
 
