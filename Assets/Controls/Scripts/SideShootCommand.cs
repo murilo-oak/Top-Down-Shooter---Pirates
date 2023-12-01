@@ -8,7 +8,7 @@ namespace Controls {
     {
         [Range(0, 20)][SerializeField] private float initialSpeed = 1f;
         [Range(0, 20)][SerializeField] private float bulletLifeTime = 5f;
-        [Range(0, 20)][SerializeField] private int amountBulletsToShoot = 3;
+        [Range(0, 20)][SerializeField] private int amountSideBulletsToShoot = 3;
         
         public override void CheckInputandExecute(InputAction action, GameObject gameObject = null)
         {
@@ -31,7 +31,7 @@ namespace Controls {
 
         private void SideShoot(GameObject gameObject)
         {
-            gameObject.GetComponent<BulletSpawner>().SpawnSideBullets(bulletLifeTime, initialSpeed, amountBulletsToShoot);
+            gameObject.GetComponent<BulletSpawner>().SpawnSideBullets(bulletLifeTime, initialSpeed, amountSideBulletsToShoot);
         }
     }
 }
