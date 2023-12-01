@@ -9,7 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 52f4a272bdcbad74f91d64ce83d15bd2, type: 3}
-  m_Name: Canvas Info Timer
+  m_Script: {fileID: 11500000, guid: 1e737fe586565be4fbf99f43b9727ce6, type: 3}
+  m_Name: (Chaser) Move Foward Command
   m_EditorClassIdentifier: 
-  timerLengthSeconds: 180
+  movementSpeed: 60

@@ -70,7 +70,7 @@ public class HealthManager: MonoBehaviour
         return false;
     }
 
-    private void Die()
+    public void Die()
     {
         if(gameObject.CompareTag("Enemy"))
         {

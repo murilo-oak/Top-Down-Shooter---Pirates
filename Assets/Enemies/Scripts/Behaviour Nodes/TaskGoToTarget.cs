@@ -12,19 +12,16 @@ public class TaskGoToTarget : Node
     private readonly MoveFowardCommand moveFowardCommand;
     private readonly RotateAnticlockwiseCommand rotateAnticlockwiseCommand;
     private readonly RotateClockwiseCommand rotateClockwiseCommand;
-    private readonly float movementTriggerDistance;
 
     public TaskGoToTarget(Transform transform,
                       MoveFowardCommand moveFowardCommand,
                       RotateClockwiseCommand rotateClockwiseCommand,
-                      RotateAnticlockwiseCommand rotateAnticlockwiseCommand,
-                      float movementTriggerDistance)
+                      RotateAnticlockwiseCommand rotateAnticlockwiseCommand)
     {
         this.transform = transform;
         this.moveFowardCommand = moveFowardCommand;
         this.rotateAnticlockwiseCommand = rotateAnticlockwiseCommand;
         this.rotateClockwiseCommand = rotateClockwiseCommand;
-        this.movementTriggerDistance = movementTriggerDistance;
         pathToTarget = new NavMeshPath();
     }
 

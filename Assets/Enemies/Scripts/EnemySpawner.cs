@@ -8,8 +8,12 @@ public class EnemySpawner : MonoBehaviour
 {
     [Min(0.01f)][SerializeField] float frequencyToSpawnNewEnemy = 1f;
     public List<GameObject> enemyTypes = new List<GameObject>();
+    
     [SerializeField] CanvasInfo optionsMenuInfo;
     [SerializeField] PlayerBoundsGenerator playerBoundsGenerator;
+
+    [SerializeField] Transform playerTf;
+    [Min(0f)][SerializeField] float minSpawnDistanceToPlayer;
 
     void Start()
     {
@@ -49,7 +53,7 @@ public class EnemySpawner : MonoBehaviour
 
             if (NavMesh.SamplePosition(randomPoint, out hit, 1.0f, NavMesh.AllAreas))
             {
-                if(!IsPositionOccupied(randomPoint))
+                if(!IsPositionOccupied(randomPoint) || Vector3.Distance(randomPoint, playerTf.position) >= minSpawnDistanceToPlayer)
                 {
                     result = hit.position;
                     return true;

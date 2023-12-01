@@ -3,7 +3,7 @@ using UnityEngine;
 using BehaviorTree;
 using Controls;
 
-public class EnemyBT : BTree
+public class ShooterEnemyBT : BTree
 {
     [Header("Commands of Behaviour Tree")]
     [SerializeField] private MoveFowardCommand moveFowardCommand;
@@ -17,9 +17,6 @@ public class EnemyBT : BTree
 
     [Header("Check Player In FOV View Config")]
     [Min(0f)][SerializeField] private float fovRange = 0.3f;
-
-    [Header("Task Go To Target Config")]
-    [Min(0)][SerializeField] float movementTriggerDistance;
 
     [Header("Check Player In Attack Range Config")]
     [Min(0)][SerializeField] float attackRange = 5f;
@@ -44,7 +41,7 @@ public class EnemyBT : BTree
             new Sequence(new List<Node>
             {
                 new CheckPlayerInFOVRange(transform, fovRange),
-                new TaskGoToTarget(transform, moveFowardCommand, rotateClockwiseCommand, rotateAnticlockwiseCommand, movementTriggerDistance)
+                new TaskGoToTarget(transform, moveFowardCommand, rotateClockwiseCommand, rotateAnticlockwiseCommand)
             }),
             new TaskPatrol(transform, waypoints, moveFowardCommand, rotateClockwiseCommand, rotateAnticlockwiseCommand, waitingTimePatrol, distancePatrolThreshold)
         }); 

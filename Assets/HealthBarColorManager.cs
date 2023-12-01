@@ -10,6 +10,9 @@ public class HealthBarColorManager : MonoBehaviour
     }
     public void SetHealthColorByPercentageHealth(float percentageHealth)
     {
-        healthBarMaterial.SetFloat("_Health", percentageHealth);
+        if (healthBarMaterial != null)
+        {
+            healthBarMaterial.SetFloat("_Health", percentageHealth);
+        }
     }
 }

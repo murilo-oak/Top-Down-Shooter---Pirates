@@ -13,10 +13,9 @@ GameObject:
   - component: {fileID: 5113773748600047726}
   - component: {fileID: -4503244358698382971}
   - component: {fileID: -6634034471995925964}
-  - component: {fileID: 3163274365278362131}
-  - component: {fileID: 5361736749976294257}
-  - component: {fileID: 7061792708621674911}
+  - component: {fileID: 4331615966203027180}
   - component: {fileID: 2081714744483484918}
+  - component: {fileID: 1957209612409769180}
   m_Layer: 0
   m_Name: Chaser
   m_TagString: Enemy
@@ -162,7 +161,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &3163274365278362131
+--- !u!114 &4331615966203027180
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -171,49 +170,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 6989046945335450411}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e83f35fb803a3eb4ebceabbc7cb12ea9, type: 3}
+  m_Script: {fileID: 11500000, guid: 55ea1e4bcfe376b49b8af875295030a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveFowardCommand: {fileID: 11400000, guid: 8af1c38c5acd3fc40b40cdfa43598da0, type: 2}
-  rotateAnticlockwiseCommand: {fileID: 11400000, guid: c28c3111c408a3a44a18e94f1c74243e, type: 2}
-  rotateClockwiseCommand: {fileID: 11400000, guid: c30aa02a8b3d9264391288752da64df3, type: 2}
-  distancePatrolThreshold: 0.1
-  waitingTimePatrol: 5
-  waypoints: []
-  fovRange: 0.97
-  movementTriggerDistance: 2.5
-  attackRange: 5
---- !u!114 &5361736749976294257
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6989046945335450411}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c45a649b939019643ae51c7838bd8dc2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  shipSizeWidth: 0.72
-  shipSizeHeight: 1.03
-  frontCannonBulletStartPositionOffset: 0.95
---- !u!114 &7061792708621674911
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6989046945335450411}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 726c2a1d938824a4495339448a1f3c2b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bulletPrefab: {fileID: 8351234271093208253, guid: c48983da260d7f144a2372a18c85f04b, type: 3}
-  cannonPositionsParrametersPlacer: {fileID: 5361736749976294257}
-  targetDamageTag: Player
-  bulletExplosionAnimation: {fileID: 7477117626751643546, guid: cb1192dc92b339647a0dd3bf0af0057f, type: 3}
+  moveFowardCommand: {fileID: 11400000, guid: d72b49716fc054c42b36c56e8b007ead, type: 2}
+  rotateAnticlockwiseCommand: {fileID: 11400000, guid: 7e442a1fe1cc63f46a59b653c1217f71, type: 2}
+  rotateClockwiseCommand: {fileID: 11400000, guid: c080a26755910f0419a284cf95339654, type: 2}
 --- !u!114 &2081714744483484918
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -229,3 +191,16 @@ MonoBehaviour:
   deathExplosionAnimation: {fileID: 1559278399423953568, guid: cb1192dc92b339647a0dd3bf0af0057f, type: 3}
   player: {fileID: 0}
   healthBarUIPrefab: {fileID: 4366982735633370928, guid: 424892a4624b50d4ca56d66ada4f6a9c, type: 3}
+--- !u!114 &1957209612409769180
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6989046945335450411}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f7ba40abbb1f48f42a206b6ee5a2d2c5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  explosionDamage: 3
