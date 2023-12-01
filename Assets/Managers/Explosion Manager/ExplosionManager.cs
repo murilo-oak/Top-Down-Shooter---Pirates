@@ -11,6 +11,7 @@ public class ExplosionManager : MonoBehaviour
     private void OnCollisionEnter(Collision collision)
     {
         GameObject collisionObject = collision.gameObject;
+        
         if (collisionObject.CompareTag("Player"))
         {
             HealthManager healthManagerPlayer = collisionObject.GetComponent<HealthManager>();

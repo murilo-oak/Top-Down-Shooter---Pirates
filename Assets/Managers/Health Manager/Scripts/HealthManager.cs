@@ -2,17 +2,17 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class HealthManager: MonoBehaviour
-{    
+public class HealthManager : MonoBehaviour
+{
     [Range(1, 100)]
     int totalHealth = 5;
     int currentHealth = 5;
     float healthPercetage = 1f;
 
-    Animator animator;
-
     [SerializeField] AnimationExplosionManager deathExplosionAnimation;
     [SerializeField] GameObject healthBarUIPrefab;
+
+    Animator animator;
     GameObject healthBarUI;
     HealthBarColorManager healthBarcolorManager;
 
@@ -36,11 +36,12 @@ public class HealthManager: MonoBehaviour
     void PositionUI()
     {
         // Set health bar position bellow Game object.
-        healthBarUI.transform.position = 1.1f * Vector3.down + transform.position ;
+        healthBarUI.transform.position = 1.1f * Vector3.down + transform.position;
     }
     public void TakeDamage(int damagePoints)
-    { 
+    {
         currentHealth = Mathf.Max(0, currentHealth - damagePoints);
+        UpdateHealthPercentage();
         CheckHealthAndUpdateSprite();
     }
 
@@ -48,14 +49,14 @@ public class HealthManager: MonoBehaviour
     {
         healPoints = Mathf.Abs(healPoints);
         currentHealth += Mathf.Min(currentHealth + healPoints, totalHealth);
+        UpdateHealthPercentage();
     }
 
     private bool CheckHealthAndUpdateSprite()
     {
-        healthPercetage = currentHealth / (float)totalHealth;
-        bool entityDied = healthPercetage <= 0;
-        
-        if (entityDied) {
+        UpdateHealthPercentage();
+
+        if (EntityDied()) {
             Die();
             return true;
         }
@@ -69,24 +70,33 @@ public class HealthManager: MonoBehaviour
         return false;
     }
 
+    void UpdateHealthPercentage()
+    {
+        healthPercetage = currentHealth / (float)totalHealth;
+    }
+    bool EntityDied()
+    {
+        return healthPercetage <= 0;
+    }
+
+
     public void Die()
     {
-        if(gameObject.CompareTag("Enemy"))
+        GameManager gameManager = GameManager.instance;
+        GameStateController gameStateController = gameManager.gameStateController;
+
+        Instantiate(deathExplosionAnimation, transform.position, Quaternion.identity);
+        deathExplosionAnimation.transform.localScale = Vector3.one * 3.3f;
+        
+        Destroy(gameObject);
+
+        if (gameObject.CompareTag("Enemy"))
         {
             GameManager.instance.scoreManager.IncreaseScore();
-            Instantiate(deathExplosionAnimation, transform.position, Quaternion.identity);
-            deathExplosionAnimation.transform.localScale = Vector3.one * 3.3f;
-            Destroy(gameObject);
         }
         else
         {
-            GameStateController gameStateController = GameManager.instance.gameStateController;
-            Instantiate(deathExplosionAnimation, transform.position, Quaternion.identity);
-            deathExplosionAnimation.transform.localScale = Vector3.one * 3.3f;
-            Destroy(gameObject);
-
             StartCoroutine("SleepUntilDeathAnimationEnds");
-
             gameStateController.ChangeState(gameStateController.gameOverState);
         }
     }
