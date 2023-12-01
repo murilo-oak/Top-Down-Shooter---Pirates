@@ -181,8 +181,8 @@ GameObject:
   - component: {fileID: 8123693749395556676}
   - component: {fileID: 7839473294784075554}
   - component: {fileID: 286772225502664165}
-  - component: {fileID: 8619545744077464930}
   - component: {fileID: 5034625651574109727}
+  - component: {fileID: 8619545744077464930}
   - component: {fileID: 3532537743036255449}
   - component: {fileID: 5864861983226576193}
   - component: {fileID: -1058552174078074870}
@@ -333,6 +333,23 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &5034625651574109727
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8206298384110266935}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 726c2a1d938824a4495339448a1f3c2b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bulletDamage: 1
+  targetDamageTag: Enemy
+  bulletPrefab: {fileID: 8351234271093208253, guid: c48983da260d7f144a2372a18c85f04b, type: 3}
+  bulletExplosionAnimation: {fileID: 7477117626751643546, guid: cb1192dc92b339647a0dd3bf0af0057f, type: 3}
+  cannonPositionsParrametersPlacer: {fileID: 8619545744077464930}
 --- !u!114 &8619545744077464930
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -347,23 +364,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shipSizeWidth: 1.19
   shipSizeHeight: 1.19
-  frontCannonBulletStartPositionOffset: 0
---- !u!114 &5034625651574109727
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8206298384110266935}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 726c2a1d938824a4495339448a1f3c2b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bulletPrefab: {fileID: 8351234271093208253, guid: c48983da260d7f144a2372a18c85f04b, type: 3}
-  cannonPositionsParrametersPlacer: {fileID: 8619545744077464930}
-  targetDamageTag: Enemy
-  bulletExplosionAnimation: {fileID: 7477117626751643546, guid: cb1192dc92b339647a0dd3bf0af0057f, type: 3}
+  frontCannonPositionOffset: 1.26
 --- !u!114 &3532537743036255449
 MonoBehaviour:
   m_ObjectHideFlags: 0

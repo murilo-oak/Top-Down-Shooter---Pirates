@@ -1,7 +1,8 @@
 using UnityEngine;
 
-public class ExplosionManager : MonoBehaviour
+public class ChaserExplosionManager : MonoBehaviour
 {
+    [Header("Damage Explosion")]
     [Min(0)][SerializeField] int explosionDamage;
     private HealthManager healthManager;
     private void Start()

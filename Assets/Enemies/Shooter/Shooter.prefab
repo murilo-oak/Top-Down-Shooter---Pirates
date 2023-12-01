@@ -259,13 +259,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e83f35fb803a3eb4ebceabbc7cb12ea9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveFowardCommand: {fileID: 11400000, guid: 8af1c38c5acd3fc40b40cdfa43598da0, type: 2}
-  rotateAnticlockwiseCommand: {fileID: 11400000, guid: c28c3111c408a3a44a18e94f1c74243e, type: 2}
-  rotateClockwiseCommand: {fileID: 11400000, guid: c30aa02a8b3d9264391288752da64df3, type: 2}
+  moveFowardCommand: {fileID: 11400000, guid: 2fa286d46dc7a7c4f96c54a1fb921b5c, type: 2}
+  rotateAnticlockwiseCommand: {fileID: 11400000, guid: 67e40a19bb919714ebb8f2499bf2c62d, type: 2}
+  rotateClockwiseCommand: {fileID: 11400000, guid: 7fdb6dd0e5bcdbe4ca8ab443c186ecb7, type: 2}
   distancePatrolThreshold: 0.1
   waitingTimePatrol: 5
   waypoints: []
-  fovRange: 0.97
+  fovRange: 3
   attackRange: 5
 --- !u!114 &5361736749976294257
 MonoBehaviour:
@@ -281,7 +281,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shipSizeWidth: 0.72
   shipSizeHeight: 1.03
-  frontCannonBulletStartPositionOffset: 0.95
+  frontCannonPositionOffset: 0.87
 --- !u!114 &7061792708621674911
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -294,10 +294,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 726c2a1d938824a4495339448a1f3c2b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletPrefab: {fileID: 8351234271093208253, guid: c48983da260d7f144a2372a18c85f04b, type: 3}
-  cannonPositionsParrametersPlacer: {fileID: 5361736749976294257}
+  bulletDamage: 1
   targetDamageTag: Player
+  bulletPrefab: {fileID: 8351234271093208253, guid: c48983da260d7f144a2372a18c85f04b, type: 3}
   bulletExplosionAnimation: {fileID: 7477117626751643546, guid: cb1192dc92b339647a0dd3bf0af0057f, type: 3}
+  cannonPositionsParrametersPlacer: {fileID: 5361736749976294257}
 --- !u!114 &2081714744483484918
 MonoBehaviour:
   m_ObjectHideFlags: 0

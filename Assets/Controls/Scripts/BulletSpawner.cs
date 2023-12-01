@@ -1,21 +1,20 @@
-using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.UIElements;
 
 public class BulletSpawner : MonoBehaviour
 {
-    public GameObject bulletPrefab;
-    [SerializeField] private BulletParrametersPlacer cannonPositionsParrametersPlacer;
+    [Header("Bullet Parameters")]
+    [Min(0)][SerializeField] private int bulletDamage;
     [TagSelector] public string targetDamageTag;
 
+    [Header("Spawner Parameters")]
+    public GameObject bulletPrefab;
     [SerializeField] GameObject bulletExplosionAnimation;
+    [SerializeField] private BulletParrametersPlacer cannonPositionsParrametersPlacer;
 
     public void SpawnFrontBullet(float bulletLifeTime, float initialSpeed)
     {
         //Front cannon tip position.
-        Vector3 spawnPosition = transform.position + transform.right * cannonPositionsParrametersPlacer.frontCannonBulletStartPositionOffset;
+        Vector3 spawnPosition = transform.position + transform.right * cannonPositionsParrametersPlacer.frontCannonPositionOffset;
 
         SpawnBullet(spawnPosition, transform.right, initialSpeed, bulletLifeTime);
     }
@@ -52,7 +51,11 @@ public class BulletSpawner : MonoBehaviour
         Rigidbody rbBullet = bulletSpawned.GetComponent<Rigidbody>();
 
         rbBullet.AddForce(direction* initialSpeed, ForceMode.Impulse);
-        bulletSpawned.GetComponent<Bullet>().SetTargetTagDamage(targetDamageTag);
+        
+        Bullet bullet = bulletSpawned.GetComponent<Bullet>();
+        bullet.SetTargetTagDamage(targetDamageTag);
+
+        bullet.damagePoints = bulletDamage;
 
         Destroy(bulletSpawned, bulletLifeTime);
 

@@ -32,7 +32,8 @@ public class TaskShoot : Node
         object target = GetData("target");
 
         bool targetExist = target != null;
-        if (targetExist)
+        
+        if (TargetExits(target))
         {
             Transform currentTargetTf = (Transform)GetData("target");
 
@@ -67,6 +68,11 @@ public class TaskShoot : Node
         state = NodeState.Running;
         return state;
     }
+    bool TargetExits(object target)
+    {
+        return target != null;
+    }
+
     void UpdateLastTargetTransform(Transform currentTargetTransform)
     {
         if (currentTargetTransform != lastTargetTf)

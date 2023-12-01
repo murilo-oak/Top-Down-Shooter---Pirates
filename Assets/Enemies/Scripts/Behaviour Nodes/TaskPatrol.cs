@@ -55,9 +55,8 @@ public class TaskPatrol : Node
             if (waiting)
             {
                 UpdateWaitCounter();
-                bool isWaitCounterReached = waitCounter >= waitTime;
 
-                if (isWaitCounterReached)
+                if (IsWaitingCounterReached())
                 {
                     StopWaiting();
                 }
@@ -87,6 +86,11 @@ public class TaskPatrol : Node
     {
         waitCounter += Time.deltaTime;
     }
+    
+    bool IsWaitingCounterReached()
+    {
+        return waitCounter >= waitTime;
+    }
 
     void StartWaiting()
     {
@@ -115,15 +119,9 @@ public class TaskPatrol : Node
         RotateToTarget(nextCorner);
     }
 
-    void RotateToTarget(Vector3 targetPos)
+    void RotateToTarget(Vector3 waypointPos)
     {
-        Vector3 facePointingDirection = transform.right;
-        Vector3 TargetDirection = Vector3.Normalize(targetPos - transform.position);
-        
-        float det = MathHelper.Determinant(facePointingDirection, TargetDirection);
-        bool shouldRotateAntiClockwise = det > 0 && Mathf.Abs(det) > 0.0f;
-
-        if (shouldRotateAntiClockwise)
+        if (ShouldRotateAntiClockwise(waypointPos))
         {
             rotateAnticlockwiseCommand.Execute(transform.gameObject);
         }
@@ -131,5 +129,15 @@ public class TaskPatrol : Node
         {
             rotateClockwiseCommand.Execute(transform.gameObject);
         }
+    }
+
+    bool ShouldRotateAntiClockwise(Vector3 waypointPos)
+    {
+        Vector3 facePointingDirection = transform.right;
+        Vector3 TargetDirection = Vector3.Normalize(waypointPos - transform.position);
+
+        float det = MathHelper.Determinant(facePointingDirection, TargetDirection);
+
+        return det > 0 && Mathf.Abs(det) > 0.01f;
     }
 }

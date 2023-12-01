@@ -28,10 +28,19 @@ public class TaskGoToTarget : Node
 
     public override NodeState Evaluate()
     {
+        object target = GetData("target");
+
+        if (!FoundTarget(target))
+        {
+            state = NodeState.Failure;
+            return state;
+        }
+        
+
         Transform targetTf = (Transform)GetData("target");
 
-        if (FoundTarget(targetTf) && PathToTargetExists(targetTf))
-        {
+        if (FoundTargetTransform(targetTf) && PathToTargetExists(targetTf))
+        { 
             MoveAlongPath(pathToTarget.corners[1]);
         }
         
@@ -47,6 +56,10 @@ public class TaskGoToTarget : Node
     bool FoundTarget(object target)
     {
         return target != null;
+    }
+    bool FoundTargetTransform(Transform targetTf)
+    {
+        return targetTf != null;
     }
 
     void MoveAlongPath(Vector3 nextCorner)

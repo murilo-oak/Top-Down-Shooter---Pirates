@@ -13,9 +13,9 @@ GameObject:
   - component: {fileID: 5113773748600047726}
   - component: {fileID: -4503244358698382971}
   - component: {fileID: -6634034471995925964}
+  - component: {fileID: 1957209612409769180}
   - component: {fileID: 4331615966203027180}
   - component: {fileID: 2081714744483484918}
-  - component: {fileID: 1957209612409769180}
   m_Layer: 0
   m_Name: Chaser
   m_TagString: Enemy
@@ -161,6 +161,19 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1957209612409769180
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6989046945335450411}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f7ba40abbb1f48f42a206b6ee5a2d2c5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  explosionDamage: 3
 --- !u!114 &4331615966203027180
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -189,18 +202,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   deathExplosionAnimation: {fileID: 1559278399423953568, guid: cb1192dc92b339647a0dd3bf0af0057f, type: 3}
-  player: {fileID: 0}
   healthBarUIPrefab: {fileID: 4366982735633370928, guid: 424892a4624b50d4ca56d66ada4f6a9c, type: 3}
---- !u!114 &1957209612409769180
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6989046945335450411}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f7ba40abbb1f48f42a206b6ee5a2d2c5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  explosionDamage: 3

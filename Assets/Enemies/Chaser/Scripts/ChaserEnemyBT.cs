@@ -26,7 +26,7 @@ public class ChaserEnemyBT : BTree
     {
         Node root = new Selector(new List<Node>
         {
-            new Sequence(new List<Node>{new TaskGoToTarget(transform, moveFowardCommand, rotateClockwiseCommand, rotateAnticlockwiseCommand)}) 
+            new TaskGoToTarget(transform, moveFowardCommand, rotateClockwiseCommand, rotateAnticlockwiseCommand)
         }); 
 
         return root;

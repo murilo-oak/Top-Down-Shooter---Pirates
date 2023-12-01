@@ -2,9 +2,10 @@ using UnityEngine;
 
 public class BulletParrametersPlacer : MonoBehaviour
 {
+    [Header("Bullet Start Position Parameters")]
     [Range(0.1f, 10f)] public float shipSizeWidth = 1f;
     [Range(0.1f, 10f)] public float shipSizeHeight = 1f;
-    [Range(-10f, 10f)] public float frontCannonBulletStartPositionOffset;
+    [Range(-10f, 10f)] public float frontCannonPositionOffset;
 
 #if UNITY_EDITOR
     private void OnDrawGizmos()
@@ -21,7 +22,7 @@ public class BulletParrametersPlacer : MonoBehaviour
 
         //Cannon Position
         Gizmos.color = Color.blue;
-        Gizmos.DrawCube(position + transform.right * frontCannonBulletStartPositionOffset, 0.2f * Vector3.one);
+        Gizmos.DrawCube(position + transform.right * frontCannonPositionOffset, 0.2f * Vector3.one);
     }
 #endif
 }

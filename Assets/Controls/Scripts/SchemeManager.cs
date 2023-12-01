@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class SchemeManager : MonoBehaviour
 {
+    [Header("Player Input Commands")]
     public ActionsCommandsScheme playerGameplayScheme;
     private InputHandler inputHandler;
 

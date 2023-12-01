@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: (Player) Side Shoot Command
   m_EditorClassIdentifier: 
   initialSpeed: 2
-  bulletLifeTime: 5
-  amountBulletsToShoot: 3
+  bulletLifeTime: 2.1
+  amountSideBulletsToShoot: 3
