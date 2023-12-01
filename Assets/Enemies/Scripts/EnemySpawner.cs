@@ -27,7 +27,8 @@ public class EnemySpawner : MonoBehaviour
         
         if (TryCreateRandomPoint(out point))
         {
-            Instantiate(enemyTypes[randomIndex], point, Quaternion.identity);
+            Quaternion RandomRotationAroundZ = Quaternion.Euler(0, 0, Random.Range(0f, 360f));
+            Instantiate(enemyTypes[randomIndex], point, RandomRotationAroundZ);
         }
 
         yield return new WaitForSeconds(frequencyToSpawnNewEnemy);

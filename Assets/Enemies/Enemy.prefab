@@ -104,7 +104,7 @@ GameObject:
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Enemy
-  m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
+  m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -282,7 +282,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shipSizeWidth: 0.72
   shipSizeHeight: 1.03
-  centerOffsetX: 0
+  frontCannonBulletStartPositionOffset: 0.95
 --- !u!114 &7061792708621674911
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -296,8 +296,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bulletPrefab: {fileID: 8351234271093208253, guid: c48983da260d7f144a2372a18c85f04b, type: 3}
-  scaleManager: {fileID: 5361736749976294257}
+  cannonPositionsParrametersPlacer: {fileID: 5361736749976294257}
   targetDamageTag: Player
+  bulletExplosionAnimation: {fileID: 7477117626751643546, guid: cb1192dc92b339647a0dd3bf0af0057f, type: 3}
 --- !u!114 &2081714744483484918
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -310,4 +311,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0166aabead74964a82c6cad7b8a6325, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  deathExplosionAnimation: {fileID: 1559278399423953568, guid: cb1192dc92b339647a0dd3bf0af0057f, type: 3}
   player: {fileID: 0}
+  healthBarUIPrefab: {fileID: 4366982735633370928, guid: 424892a4624b50d4ca56d66ada4f6a9c, type: 3}

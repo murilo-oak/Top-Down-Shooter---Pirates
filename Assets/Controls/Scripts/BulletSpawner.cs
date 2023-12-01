@@ -7,15 +7,24 @@ using UnityEngine.UIElements;
 public class BulletSpawner : MonoBehaviour
 {
     public GameObject bulletPrefab;
-    [SerializeField] private SideCannonPlacer scaleManager;
+    [SerializeField] private BulletParrametersPlacer cannonPositionsParrametersPlacer;
     [TagSelector] public string targetDamageTag;
+
+    [SerializeField] GameObject bulletExplosionAnimation;
+
     public void SpawnFrontBullet(float bulletLifeTime, float initialSpeed)
     {
-        GameObject bulletSpawned = Instantiate(bulletPrefab, transform.position, Quaternion.identity);
+        Vector3 spawnPosition = transform.position + transform.right * cannonPositionsParrametersPlacer.frontCannonBulletStartPositionOffset;
+        GameObject bulletSpawned = Instantiate(bulletPrefab, spawnPosition, Quaternion.identity);
         Rigidbody rbBullet = bulletSpawned.GetComponent<Rigidbody>();
 
         rbBullet.AddForce(transform.right * initialSpeed, ForceMode.Impulse);
         bulletSpawned.GetComponent<Bullet>().SetTargetTagDamage(targetDamageTag);
+        
+        
+        GameObject newExplosion = Instantiate(bulletExplosionAnimation, rbBullet.position, Quaternion.identity);
+        newExplosion.transform.SetParent(transform);
+        newExplosion.transform.localScale = 0.5f * Vector3.one;
         Destroy(bulletSpawned, bulletLifeTime);
     }
 
@@ -24,8 +33,8 @@ public class BulletSpawner : MonoBehaviour
         Vector3 sideDir = gameObject.transform.up;
         Vector3 position = transform.position;
 
-        float halfsizeWidth = scaleManager.shipSizeWidth/2;
-        float shipSizeHeight = scaleManager.shipSizeHeight/2;
+        float halfsizeWidth = cannonPositionsParrametersPlacer.shipSizeWidth/2;
+        float shipSizeHeight = cannonPositionsParrametersPlacer.shipSizeHeight/2;
 
         for (int j = 0; j < 2; j++)
         {
@@ -40,10 +49,15 @@ public class BulletSpawner : MonoBehaviour
                 
                 rbBullet.AddForce(sideDir * initialSpeed, ForceMode.Impulse);
                 bulletSpawned.GetComponent<Bullet>().SetTargetTagDamage(targetDamageTag);
+
+                GameObject newExplosion = Instantiate(bulletExplosionAnimation, rbBullet.position, Quaternion.identity);
+                newExplosion.transform.SetParent(transform);
+                newExplosion.transform.localScale = 0.5f * Vector3.one;
+
                 Destroy(bulletSpawned, bulletLifeTime);
             }
             sideDir = -sideDir;
-            position -= transform.up * shipSizeHeight*2;
+            position -= 2 * shipSizeHeight * transform.up;
         }
     }
 }
