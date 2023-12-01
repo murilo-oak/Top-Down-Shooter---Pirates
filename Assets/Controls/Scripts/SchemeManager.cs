@@ -17,10 +17,4 @@ public class SchemeManager : MonoBehaviour
         inputHandler.UpdateActionsCommandsList(playerGameplayScheme.actionCommandList);
         inputHandler.UpdateActionsCommandsBindings();
     }
-
-    private void OnDrawGizmos()
-    {
-        Gizmos.color = Color.blue;
-        Gizmos.DrawLine(transform.position + transform.right * 0.5f, transform.position + transform.right * 1.5f);
-    }
 }
