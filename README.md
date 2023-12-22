@@ -1,5 +1,7 @@
 ﻿# Top Down Shooter 🚀
 
+![Screenshot Image](Public/Screenshot.png)
+
 ## Control Instructions
 
 - 🕹 **Movement:** Use the **W** key to move forward.
